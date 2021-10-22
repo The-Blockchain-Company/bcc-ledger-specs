@@ -1,0 +1,97 @@
+index-state: 2021-02-15T00:00:00Z
+
+packages:
+  aurum/impl
+  aurum/test
+  cole/chain/executable-spec
+  cole/ledger/executable-spec
+  cole/ledger/impl
+  cole/ledger/impl/test
+  cole/crypto
+  cole/crypto/test
+  bcc-ledger-core
+  bcc-ledger-test
+  bcc-protocol-toptimum
+  zerepoch-preprocessor
+  semantics/executable-spec
+  semantics/small-steps-test
+  sophie/chain-and-ledger/dependencies/non-integer
+  sophie/chain-and-ledger/executable-spec
+  sophie/chain-and-ledger/sophie-spec-ledger-test
+  sophie-ma/impl
+  sophie-ma/sophie-ma-test
+  example-sophie/
+
+-- Always write GHC env files, because they are needed by the doctests.
+write-ghc-environment-files: always
+
+source-repository-package
+  type: git
+  location: https://github.com/The-Blockchain-Company/bcc-base
+  tag: 027956bcb59f227e9b8c2032aacbb945394f4785
+
+  subdir:
+    base-deriving-via
+    binary
+    binary/test
+    bcc-crypto-class
+    bcc-crypto-optimum
+    measures
+    slotting
+    strict-containers
+
+source-repository-package
+  type: git
+  location: https://github.com/The-Blockchain-Company/bcc-crypto
+  tag: 3e03966459d94e6020364487f85451b641ee64a4
+  
+
+source-repository-package
+  type: git
+  location: https://github.com/The-Blockchain-Company/bcc-prelude
+  tag: 583f26698d2a46b06ea251a4b3f1762d909f9ecb
+
+  subdir:
+    bcc-prelude
+    bcc-prelude-test
+
+source-repository-package
+  type: git
+  location: https://github.com/The-Blockchain-Company/shepards
+  tag: f3f78f1f98060115122a23f38eaf2c9a42806b87
+
+source-repository-package
+  type: git
+  location: https://github.com/The-Blockchain-Company/zerepoch
+  tag: 5852f35f37dcfe34438ddf800316cd1719fce4d0
+  
+  subdir:
+    zerepoch-ledger-api
+    zerepoch-tx
+    zerepoch-tx-plugin
+    zerepoch-core
+    prettyprinter-configurable
+    word-array
+
+-- https://github.com/Quid2/flat/pull/22 fixes a potential exception
+-- when decoding invalid (e.g. malicious) text literals.
+source-repository-package
+  type: git
+  -- location: https://github.com/Quid2/flat.git
+  location: https://github.com/michaelpj/flat.git
+  tag: ee59880f47ab835dbd73bea0847dab7869fc20d8
+  --sha256: 1lrzknw765pz2j97nvv9ip3l1mcpf2zr4n56hwlz0rk7wq7ls4cm
+
+allow-newer:
+  monoidal-containers:aeson,
+  size-based:template-haskell,
+
+  -- TODO: This is only needed until index-state is updated to 2021-02-17 or later.
+  test-framework:random,
+  test-framework-quickcheck2:random
+
+constraints:
+  -- bizarre issue: in earlier versions they define their own 'GEq', in newer
+  -- ones they reuse the one from 'some', but there isn't e.g. a proper version
+  -- constraint from dependent-sum-template (which is the library we actually use).
+  , dependent-sum > 0.6.2.0

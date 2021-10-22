@@ -1,0 +1,88 @@
+cabal-version:      2.4
+name:               bcc-ledger-core
+version:            0.1.0.0
+synopsis:           Core components of Bcc ledgers from the Sophie release on.
+description:
+  Bcc ledgers from the Sophie release onwards share a core basis rooted in
+  the Sophie ledger specification. This package abstracts a number of components
+  which we expect to be shared amongst all future ledgers implemented around this base.
+bug-reports:        https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
+
+license:            Apache-2.0
+author:             TBCO Formal Methods Team
+maintainer:         formal.methods@tbco.io
+copyright:          2021 The-Blockchain-Company 
+
+source-repository head
+  type:     git
+  location: https://github.com/The-Blockchain-Company/bcc-ledger-specs
+
+common base
+  build-depends:
+    base >= 4.12 && < 4.15
+
+common project-config
+  default-language: Haskell2010
+
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+    -Wpartial-fields
+    -Wunused-packages
+
+library
+  import:
+    base, project-config
+
+  hs-source-dirs: src
+
+  exposed-modules:
+    Bcc.Ledger.Address
+    Bcc.Ledger.AuxiliaryData
+    Bcc.Ledger.BaseTypes
+    Bcc.Ledger.Coin
+    Bcc.Ledger.Compactible
+    Bcc.Ledger.Core
+    Bcc.Ledger.Credential
+    Bcc.Ledger.Crypto
+    Bcc.Ledger.Era
+    Bcc.Ledger.Keys
+    Bcc.Ledger.Hashes
+    Bcc.Ledger.Rules.ValidationMode
+    Bcc.Ledger.SafeHash
+    Bcc.Ledger.Serialization
+    Bcc.Ledger.Slot
+    Bcc.Ledger.Val
+
+  build-depends:
+    aeson,
+    base16-bytestring,
+    binary,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-crypto-optimum,
+    bcc-crypto-wrapper,
+    bcc-ledger-cole,
+    bcc-prelude,
+    bcc-slotting,
+    containers,
+    data-default-class,
+    deepseq,
+    groups,
+    iproute,
+    mtl,
+    network,
+    nothunks,
+    partial-order,
+    quiet,
+    scientific,
+    sophie-spec-non-integral,
+    small-steps,
+    strict-containers,
+    text,
+    time,
+    transformers

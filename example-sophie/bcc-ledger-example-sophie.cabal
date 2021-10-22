@@ -1,0 +1,149 @@
+cabal-version:       2.2
+
+name:                bcc-ledger-example-sophie
+version:             0.1.0.0
+synopsis:            Example era within Sophie context
+description:
+  This is intended as a demonstration and example for hard fork
+  combinators.
+bug-reports:         https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
+license:             Apache-2.0
+author:              TBCO Formal Methods Team
+maintainer:          formal.methods@tbco.io
+copyright:           2021 The-Blockchain-Company
+category:            Network
+build-type:          Simple
+
+source-repository head
+  type:     git
+  location: https://github.com/The-Blockchain-Company/bcc-ledger-specs
+
+library
+  exposed-modules:
+    Bcc.Ledger.Example
+    Bcc.Ledger.Example.Translation
+
+  -- other-extensions:
+  build-depends:
+    array,
+    base >=4.9 && <4.15,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-ledger-core,
+    bcc-prelude,
+    bcc-protocol-toptimum,
+    bcc-slotting,
+    cborg,
+    containers,
+    data-default-class,
+    deepseq,
+    groups,
+    mtl,
+    nothunks,
+    prettyprinter,
+    primitive,
+    sophie-spec-ledger,
+    small-steps,
+    text,
+    transformers
+  hs-source-dirs: src
+  ghc-options:
+    -Wall
+    -Werror
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+    -Wpartial-fields
+    -Wunused-imports
+    -Wdodgy-imports
+  default-language:    Haskell2010
+
+library test
+  exposed-modules:
+    Test.Bcc.Ledger.Example
+  -- other-extensions:
+  build-depends:
+    array,
+    bcc-ledger-example-sophie,
+    sophie-spec-ledger-test,
+    base >=4.9 && <4.15,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-crypto-optimum,
+    bcc-ledger-core,
+    bcc-prelude,
+    generic-random,
+    bcc-slotting,
+    cborg,
+    containers,
+    hashable,
+    mtl,
+    sophie-spec-ledger,
+    small-steps,
+    strict-containers,
+    tasty-hunit,
+    tasty-quickcheck,
+    tasty,
+    text,
+    QuickCheck >= 2.13.2,
+  hs-source-dirs: test
+  ghc-options:
+    -Wall
+    -Werror
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+    -Wpartial-fields
+  default-language:    Haskell2010
+
+test-suite bcc-ledger-example-sophie-tests
+    type:                exitcode-stdio-1.0
+    main-is:             Tests.hs
+    hs-source-dirs:      test
+    other-modules:
+      Test.Bcc.Ledger.Example
+    default-language:    Haskell2010
+    ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -Wall
+      -Werror
+      -Wcompat
+      -Wincomplete-record-updates
+      -Wincomplete-uni-patterns
+      -Wredundant-constraints
+      -- We set a bound here so that we're alerted of potential space
+      -- leaks in our generators (or test) code.
+      --
+      -- The 4 megabytes stack bound and 200 megabytes heap bound were
+      -- determined ad-hoc.
+      "-with-rtsopts=-K4m -M250m"
+    build-depends:
+      data-default-class,
+      bcc-ledger-example-sophie,
+      base >=4.9 && <4.15,
+      bytestring,
+      bcc-binary,
+      bcc-crypto-class,
+      bcc-ledger-core,
+      bcc-prelude,
+      bcc-slotting,
+      cborg,
+      containers,
+      generic-random,
+      mtl,
+      sophie-spec-ledger,
+      sophie-spec-ledger-test,
+      strict-containers,
+      small-steps-test,
+      small-steps,
+      tasty-hunit,
+      tasty-quickcheck,
+      tasty,
+      test,
+      QuickCheck,

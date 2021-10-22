@@ -1,0 +1,137 @@
+cabal-version: 2.2
+
+name:                sophie-spec-ledger
+version:             0.1.0.0
+description:         Sophie Ledger Executable Model
+license:             Apache-2.0
+author:              TBCO Formal Methods Team
+maintainer:          formal.methods@tbco.io
+build-type:          Simple
+
+source-repository head
+  type: git
+  location: https://github.com/The-Blockchain-Company/bcc-ledger-specs.git
+  subdir:   hs
+
+flag development
+    description: Disable '-Werror'
+    default: False
+    manual: True
+
+common base
+  build-depends:      base >= 4.12 && < 4.15
+
+common project-config
+  default-language:   Haskell2010
+
+  ghc-options:        -Wall
+                      -Wcompat
+                      -Wincomplete-record-updates
+                      -Wincomplete-uni-patterns
+                      -Wredundant-constraints
+                      -Wpartial-fields
+                      -Wunused-packages
+
+  if (!flag(development))
+    ghc-options:      -Werror
+
+library
+  import:             base, project-config
+  exposed-modules:
+    Bcc.Ledger.Pretty
+    Bcc.Ledger.Sophie
+    Bcc.Ledger.Sophie.Constraints
+    Sophie.Spec.Ledger.Address
+    Sophie.Spec.Ledger.Address.Bootstrap
+    Sophie.Spec.Ledger.API
+    Sophie.Spec.Ledger.API.ColeTranslation
+    Sophie.Spec.Ledger.API.Genesis
+    Sophie.Spec.Ledger.API.Protocol
+    Sophie.Spec.Ledger.API.Validation
+    Sophie.Spec.Ledger.API.Wallet
+    Sophie.Spec.Ledger.API.Mempool
+    Sophie.Spec.Ledger.BaseTypes
+    Sophie.Spec.Ledger.BlockChain
+    Sophie.Spec.Ledger.CompactAddr
+    Sophie.Spec.Ledger.Credential
+    Sophie.Spec.Ledger.Delegation.Certificates
+    Sophie.Spec.Ledger.Delegation.PoolParams
+    Sophie.Spec.Ledger.EpochBoundary
+    Sophie.Spec.Ledger.Genesis
+    Sophie.Spec.Ledger.HardForks
+    Sophie.Spec.Ledger.Keys
+    Sophie.Spec.Ledger.LedgerState
+    Sophie.Spec.Ledger.Metadata
+    Sophie.Spec.Ledger.OCert
+    Sophie.Spec.Ledger.Orphans
+    Sophie.Spec.Ledger.OverlaySchedule
+    Sophie.Spec.Ledger.PParams
+    Sophie.Spec.Ledger.Rewards
+    Sophie.Spec.Ledger.RewardProvenance
+    Sophie.Spec.Ledger.RewardUpdate
+    Sophie.Spec.Ledger.Scripts
+    Sophie.Spec.Ledger.Slot
+    Sophie.Spec.Ledger.SoftForks
+    Sophie.Spec.Ledger.StabilityWindow
+    Sophie.Spec.Ledger.STS.Bbody
+    Sophie.Spec.Ledger.STS.Chain
+    Sophie.Spec.Ledger.STS.Deleg
+    Sophie.Spec.Ledger.STS.Delegs
+    Sophie.Spec.Ledger.STS.Delpl
+    Sophie.Spec.Ledger.STS.Epoch
+    Sophie.Spec.Ledger.STS.EraMapping
+    Sophie.Spec.Ledger.STS.Ledger
+    Sophie.Spec.Ledger.STS.Ledgers
+    Sophie.Spec.Ledger.STS.Mir
+    Sophie.Spec.Ledger.STS.NewEpoch
+    Sophie.Spec.Ledger.STS.Newpp
+    Sophie.Spec.Ledger.STS.Ocert
+    Sophie.Spec.Ledger.STS.Overlay
+    Sophie.Spec.Ledger.STS.Pool
+    Sophie.Spec.Ledger.STS.PoolReap
+    Sophie.Spec.Ledger.STS.Ppup
+    Sophie.Spec.Ledger.STS.Prtcl
+    Sophie.Spec.Ledger.STS.Rupd
+    Sophie.Spec.Ledger.STS.Snap
+    Sophie.Spec.Ledger.STS.Tick
+    Sophie.Spec.Ledger.STS.Tickn
+    Sophie.Spec.Ledger.STS.Updn
+    Sophie.Spec.Ledger.STS.Upec
+    Sophie.Spec.Ledger.STS.Utxo
+    Sophie.Spec.Ledger.STS.Utxow
+    Sophie.Spec.Ledger.Tx
+    Sophie.Spec.Ledger.TxBody
+    Sophie.Spec.Ledger.UTxO
+  other-modules:      Sophie.Spec.Ledger.API.Types
+  hs-source-dirs: src
+  build-depends:
+    aeson,
+    base16-bytestring >= 1,
+    bech32,
+    bytestring,
+    bcc-binary,
+    bcc-crypto,
+    bcc-crypto-class,
+    bcc-crypto-wrapper,
+    bcc-ledger-cole,
+    bcc-ledger-core,
+    bcc-prelude,
+    bcc-protocol-toptimum,
+    bcc-slotting,
+    cborg,
+    constraints,
+    containers,
+    data-default-class,
+    deepseq,
+    groups,
+    iproute,
+    mtl,
+    nothunks,
+    prettyprinter,
+    primitive >= 0.7.1.0,
+    quiet,
+    small-steps,
+    strict-containers,
+    text,
+    time,
+    transformers

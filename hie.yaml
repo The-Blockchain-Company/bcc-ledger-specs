@@ -1,0 +1,79 @@
+cradle:
+  cabal:
+    - path: "cole/chain/executable-spec/src"
+      component: "lib:cole-spec-chain"
+
+    - path: "cole/chain/executable-spec/test"
+      component: "cole-spec-chain:test:chain-rules-test"
+
+    - path: "cole/crypto/src"
+      component: "lib:bcc-crypto-wrapper"
+
+    - path: "cole/crypto/test/"
+      component: "lib:bcc-crypto-test"
+
+    - path: "cole/ledger/executable-spec/src"
+      component: "lib:cole-spec-ledger"
+
+    - path: "cole/ledger/executable-spec/test"
+      component: "cole-spec-ledger:test:cole-spec-ledger-test"
+
+    - path: "cole/ledger/impl/src"
+      component: "lib:bcc-ledger-cole"
+
+    - path: "cole/ledger/impl/test"
+      component: "bcc-ledger-cole:test:bcc-ledger-cole-test"
+
+    - path: "semantics/executable-spec/src"
+      component: "lib:small-steps"
+
+    - path: "semantics/small-steps-test/src"
+      component: "lib:small-steps-test"
+
+    - path: "semantics/small-steps-test/test"
+      component: "small-steps-test:test:examples"
+
+    - path: "bcc-ledger-core/src"
+      component: "lib:bcc-ledger-core"
+
+    - path: "sophie/chain-and-ledger/dependencies/non-integer/src"
+      component: "lib:sophie-spec-non-integral"
+
+    - path: "sophie/chain-and-ledger/dependencies/non-integer/test"
+      component: "sophie-spec-non-integral:test:sophie-spec-non-integral-test"
+
+    - path: "sophie/chain-and-ledger/executable-spec/src"
+      component: "lib:sophie-spec-ledger"
+
+    - path: "sophie/chain-and-ledger/sophie-spec-ledger-test/src"
+      component: "lib:sophie-spec-ledger-test"
+
+    - path: "sophie/chain-and-ledger/sophie-spec-ledger-test/test"
+      component: "sophie-spec-ledger-test:test:sophie-spec-ledger-test"
+
+    - path: "sophie/chain-and-ledger/sophie-spec-ledger-test/bench"
+      component: "sophie-spec-ledger-test:bench:mainbench"
+
+    - path: "sophie-ma/impl/src"
+      component: "lib:bcc-ledger-sophie-ma"
+
+    - path: "sophie-ma/sophie-ma-test/src"
+      component: "lib:bcc-ledger-sophie-ma-test"
+
+    - path: "sophie-ma/sophie-ma-test/test"
+      component: "bcc-ledger-sophie-ma-test:bench:bench"
+
+    - path: "aurum/impl/src"
+      component: "lib:bcc-ledger-aurum"
+
+    - path: "aurum/test/lib"
+      component: "bcc-ledger-aurum-test"
+
+    - path: "aurum/test/test"
+      component: "bcc-ledger-aurum-test:test:bcc-ledger-aurum-test"
+
+    - path: "bcc-ledger-test/src"
+      component: "lib:bcc-ledger-test"
+
+    - path: "bcc-ledger-test/bench"
+      component: "bcc-ledger-test:bench:bench"

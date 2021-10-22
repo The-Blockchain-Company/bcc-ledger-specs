@@ -1,0 +1,47 @@
+cabal-version:      3.0
+name:               zerepoch-preprocessor
+version:            0.1.0.0
+
+synopsis: A preproceesor for creating zerepoch scripts as bytestrings and equivalents
+
+description: Use this file to compile zerepoch scripts and to generate bytestring equivalents as text
+
+bug-reports:https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
+license:             Apache-2.0
+author:              TBCO Formal Methods Team
+maintainer:          formal.methods@tbco.io
+
+copyright:           2021 The-Blockchain-Company
+category:            Network
+
+extra-source-files: CHANGELOG.md
+
+executable zerepoch-preprocessor
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    other-modules:
+       ZerepochScripts
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:
+      base,
+      bytestring,
+      flat,
+      zerepoch-core,
+      zerepoch-tx,
+      zerepoch-tx-plugin,
+      zerepoch-ledger-api,
+      serialise,
+      template-haskell
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+executable zerepoch-debug
+    main-is:          Debug.hs
+    build-depends:
+      base,
+      bcc-ledger-aurum,
+    hs-source-dirs:   src
+    default-language: Haskell2010

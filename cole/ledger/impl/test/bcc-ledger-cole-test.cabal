@@ -1,0 +1,137 @@
+cabal-version: 2.2
+
+name:                bcc-ledger-cole-test
+version:             1.3.0
+synopsis:            Test helpers from bcc-ledger exposed to other packages
+description:         Test helpers from bcc-ledger exposed to other packages
+license:             Apache-2.0
+author:              TBCO
+maintainer:          operations@tbco.io
+copyright:           2018 TBCO
+category:            Currency
+build-type:          Simple
+
+flag development
+    description: Disable `-Werror`
+    default: False
+    manual: True
+
+common base
+  build-depends:      base >= 4.12 && < 4.15
+
+common project-config
+  default-language:   Haskell2010
+  default-extensions: NoImplicitPrelude
+
+  ghc-options:        -Weverything
+                      -Wno-all-missed-specialisations
+                      -Wno-missing-deriving-strategies
+                      -Wno-missing-import-lists
+                      -Wno-missing-safe-haskell-mode
+                      -Wno-prepositive-qualified-module
+                      -Wno-safe
+                      -Wno-unsafe
+                      -Wunused-packages
+
+  if (!flag(development))
+    ghc-options:      -Werror
+
+library
+  import:             base, project-config
+
+  exposed-modules:
+                       Test.Bcc.Chain.Block.CBOR
+                       Test.Bcc.Chain.Block.Gen
+                       Test.Bcc.Chain.Block.Model
+                       Test.Bcc.Chain.Block.Model.Examples
+                       Test.Bcc.Chain.Block.Validation
+                       Test.Bcc.Chain.Block.ValidationMode
+
+                       Test.Bcc.Chain.Cole.API
+
+                       Test.Bcc.Chain.Buildable
+
+                       Test.Bcc.Chain.Common.Address
+                       Test.Bcc.Chain.Common.CBOR
+                       Test.Bcc.Chain.Common.Compact
+                       Test.Bcc.Chain.Common.Example
+                       Test.Bcc.Chain.Common.Gen
+                       Test.Bcc.Chain.Common.Entropic
+                       Test.Bcc.Chain.Config
+
+                       Test.Bcc.Chain.Delegation.CBOR
+                       Test.Bcc.Chain.Delegation.Certificate
+                       Test.Bcc.Chain.Delegation.Example
+                       Test.Bcc.Chain.Delegation.Gen
+                       Test.Bcc.Chain.Delegation.Model
+
+                       Test.Bcc.Chain.Elaboration.Block
+                       Test.Bcc.Chain.Elaboration.Delegation
+                       Test.Bcc.Chain.Elaboration.Keys
+                       Test.Bcc.Chain.Elaboration.Update
+                       Test.Bcc.Chain.Elaboration.UTxO
+
+                       Test.Bcc.Chain.Epoch.File
+
+                       Test.Bcc.Chain.Genesis.CBOR
+                       Test.Bcc.Chain.Genesis.Dummy
+                       Test.Bcc.Chain.Genesis.Example
+                       Test.Bcc.Chain.Genesis.Gen
+                       Test.Bcc.Chain.Genesis.Json
+
+                       Test.Bcc.Chain.MempoolPayload.CBOR
+                       Test.Bcc.Chain.MempoolPayload.Example
+                       Test.Bcc.Chain.MempoolPayload.Gen
+
+                       Test.Bcc.Chain.Ssc.CBOR
+
+                       Test.Bcc.Chain.Slotting.CBOR
+                       Test.Bcc.Chain.Slotting.Example
+                       Test.Bcc.Chain.Slotting.Gen
+                       Test.Bcc.Chain.Slotting.Properties
+
+                       Test.Bcc.Chain.UTxO.CBOR
+                       Test.Bcc.Chain.UTxO.Compact
+                       Test.Bcc.Chain.UTxO.Example
+                       Test.Bcc.Chain.UTxO.Gen
+                       Test.Bcc.Chain.UTxO.Model
+                       Test.Bcc.Chain.UTxO.ValidationMode
+
+                       Test.Bcc.Chain.Update.CBOR
+                       Test.Bcc.Chain.Update.Example
+                       Test.Bcc.Chain.Update.Gen
+                       Test.Bcc.Chain.Update.Properties
+
+                       Test.Bcc.Mirror
+
+                       Test.Options
+
+  build-depends:       base16-bytestring >= 1
+                     , bimap
+                     , bytestring
+                     , bcc-binary
+                     , bcc-binary-test
+                     , bcc-ledger-cole
+                     , bcc-crypto
+                     , bcc-crypto-test
+                     , bcc-crypto-wrapper
+                     , bcc-prelude
+                     , bcc-prelude-test
+                     , containers
+                     , cole-spec-chain
+                     , cole-spec-ledger
+                     , directory
+                     , filepath
+                     , formatting
+                     , generic-monoid
+                     , hedgehog >= 1.0.4
+                     , microlens
+                     , resourcet
+                     , small-steps
+                     , small-steps-test
+                     , streaming
+                     , tasty
+                     , tasty-hedgehog
+                     , text
+                     , time
+                     , vector

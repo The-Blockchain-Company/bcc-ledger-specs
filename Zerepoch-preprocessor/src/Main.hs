@@ -1,0 +1,159 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE TemplateHaskell #-}
+
+-- | The 'main' function in this file writes a file
+--     'bcc-ledger-specs/aurum/test/lib/Test/Bcc/Ledger/Aurum/ZerepochScripts.hs'
+--     When this file is compiled it exports a bunch of Aurum era scripts that are zerepoch scripts.
+--     Compiling that file does not have any dependency on the zerepoch-plugin.
+--     Instead this package 'zerepoch-preproccssor' has that dependency, but one does not have
+--     to compile this package to build the system.
+--     If the zerepoch package changes, we will have to regenerate the ZerepochScripts.hs file.
+--     To regenerate ZerepochScripts.hs, on a machine that can depend upon zerepoch=plugin, then
+--     cd into the zerepoch-preprocessor directory and type 'cabal run'
+module Main where
+
+import Codec.Serialise (serialise)
+import Data.ByteString.Lazy (toStrict)
+import Data.ByteString.Short (ShortByteString, pack, toShort, unpack)
+import Flat (flat)
+import Language.Haskell.TH
+import Language.Haskell.TH.Ppr
+import qualified Zerepoch.V1.Ledger.Api as P
+import ZerepochScripts
+  ( evenRedeemerDecl,
+    evenRedeemerDecl2Args,
+    evendataDecl,
+    guessDecl,
+    guessDecl2args,
+    oddRedeemerDecl,
+    oddRedeemerDecl2Args,
+    odddataDecl,
+    redeemerIs10Decl2Args,
+    sumsTo10Decl,
+  )
+import qualified ZerepochTx as P (Data (..), compile)
+import qualified ZerepochTx.Builtins as P
+import qualified ZerepochTx.Prelude as P
+import System.IO
+
+-- =============================================
+-- how to display a preprocessed script
+
+display :: Handle -> ShortByteString -> Q [Dec] -> String -> IO ()
+display h bytes code name = do
+  xxx <- runQ code
+  hPutStrLn h $ ("\n\n{- Preproceesed Zerepoch Script\n" ++ pprint xxx ++ "\n-}")
+  hPutStr h ("\n" ++ name ++ " :: Script era\n" ++ name ++ " = (ZerepochScript . pack . concat) \n  [")
+  manylines h 15 (unpack bytes)
+
+manylines :: Show t => Handle -> Int -> [t] -> IO ()
+manylines h n ts = write (split ts)
+  where
+    split [] = []
+    split ts = take n ts : split (drop n ts)
+    write [ts] = hPutStrLn h (show ts ++ "]")
+    write (ts : tss) = do
+      hPutStr h (show ts ++ ",\n   ")
+      write tss
+
+-- ==========================================================================
+-- Turn the Template Haskell Decls into real haskell functions using Template
+-- Haskell top-level splices, of TH.Decl imported from ZerepochScripts. We use
+-- this 2 step process (1. define elsewhere as a TH.Decl, 2. splice here) so that
+-- can export the actual text of the zerepoch code as a comment in the generated file.
+
+$guessDecl
+$guessDecl2args
+$evendataDecl
+$evenRedeemerDecl
+$odddataDecl
+$oddRedeemerDecl
+$sumsTo10Decl
+$evenRedeemerDecl2Args
+$oddRedeemerDecl2Args
+$redeemerIs10Decl2Args
+
+-- ================================================================
+-- Compile the real functions as Zerepoch scripts, and get their
+-- bytestring equaivalents. Here is where we depend on zerepoch-plugin.
+
+guessTheNumberBytes :: ShortByteString
+guessTheNumberBytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||guessTheNumber'3||])
+
+guess2args :: ShortByteString
+guess2args =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||guessTheNumber'2||])
+
+evendataBytes :: ShortByteString
+evendataBytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||evendata'||])
+
+evenRedeemerBytes :: ShortByteString
+evenRedeemerBytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||evenRedeemer'||])
+
+odddataBytes :: ShortByteString
+odddataBytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||odddata'||])
+
+oddRedeemerBytes :: ShortByteString
+oddRedeemerBytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||oddRedeemer'||])
+
+sumsTo10Bytes :: ShortByteString
+sumsTo10Bytes =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||sumsTo10'||])
+
+oddRedeemerBytes2Arg :: ShortByteString
+oddRedeemerBytes2Arg =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||oddRedeemer2'||])
+
+evenRedeemerBytes2Args :: ShortByteString
+evenRedeemerBytes2Args =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||evenRedeemer2'||])
+
+redeemerIs10Bytes2Args :: ShortByteString
+redeemerIs10Bytes2Args =
+  toShort . toStrict . serialise . P.fromCompiledCode $
+    $$(P.compile [||redeemerIs102'||])
+
+-- ========================================================================
+-- Generate the ZerepochScripts.hs which does not depend on zerepoch-plugin.
+-- write out the file header (module and imports), then 'display' the result
+-- for each zerepoch script.
+
+main :: IO ()
+main = do
+  outh <- openFile "../aurum/test/lib/Test/Bcc/Ledger/Aurum/ZerepochScripts.hs" WriteMode
+  mapM_
+    (hPutStrLn outh)
+    [ "-- | This file is generated by zerepoch-preprocessor/src/Main.hs",
+      "module Test.Bcc.Ledger.Aurum.ZerepochScripts where\n",
+      "import Data.ByteString.Short (pack)\n",
+      "import Bcc.Ledger.Aurum.Scripts(CostModel (..), Script(..))\n",
+      "import Zerepoch.V1.Ledger.Api(defaultCostModelParams)\n",
+      "defaultCostModel :: Maybe CostModel\n",
+      "defaultCostModel = CostModel <$> defaultCostModelParams"
+    ]
+  display outh guess2args guessDecl2args "guessTheNumber2"
+  display outh guessTheNumberBytes guessDecl "guessTheNumber3"
+  display outh evendataBytes evendataDecl "evendata3"
+  display outh odddataBytes odddataDecl "odddata3"
+  display outh evenRedeemerBytes evenRedeemerDecl "evenRedeemer3"
+  display outh oddRedeemerBytes oddRedeemerDecl "oddRedeemer3"
+  display outh sumsTo10Bytes sumsTo10Decl "sumsTo103"
+  -- 2 arg zerepoch scripts
+  display outh oddRedeemerBytes2Arg oddRedeemerDecl2Args "oddRedeemer2"
+  display outh evenRedeemerBytes2Args evenRedeemerDecl2Args "evenRedeemer2"
+  display outh redeemerIs10Bytes2Args redeemerIs10Decl2Args "redeemerIs102"
+  hClose outh

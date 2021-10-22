@@ -1,0 +1,269 @@
+cabal-version: 2.2
+
+name:                sophie-spec-ledger-test
+version:             0.1.0.0
+description:         Test helpers from sophie-spec-ledger exposed to other packages
+license:             Apache-2.0
+author:              TBCO 
+maintainer:          Bcc-Coin@tbco.io
+build-type:          Simple
+
+extra-source-files:
+  cddl-files/sophie.cddl
+  cddl-files/real/crypto.cddl
+  cddl-files/mock/extras.cddl
+
+source-repository head
+  type: git
+  location: https://github.com/The-Blockchain-Company/bcc-ledger-specs.git
+
+flag development
+    description: Disable '-Werror'
+    default: False
+    manual: True
+
+common base
+  build-depends:      base >= 4.12 && < 4.15
+
+common project-config
+  default-language:   Haskell2010
+
+  ghc-options:        -Wall
+                      -Wcompat
+                      -Wincomplete-record-updates
+                      -Wincomplete-uni-patterns
+                      -Wredundant-constraints
+                      -Wunused-packages
+  if (!flag(development))
+    ghc-options:      -Werror
+
+library
+  import:             base, project-config
+  hs-source-dirs:     src
+                      test
+  exposed-modules:
+    Test.Bcc.Crypto.VRF.Fake
+    Test.Sophie.Spec.Ledger.BenchmarkFunctions
+    Test.Sophie.Spec.Ledger.ConcreteCryptoTypes
+    Test.Sophie.Spec.Ledger.Examples.Cast
+    Test.Sophie.Spec.Ledger.Examples.Consensus
+    Test.Sophie.Spec.Ledger.Generator.Block
+    Test.Sophie.Spec.Ledger.Generator.Constants
+    Test.Sophie.Spec.Ledger.Generator.Core
+    Test.Sophie.Spec.Ledger.Generator.Update
+    Test.Sophie.Spec.Ledger.Generator.Delegation
+    Test.Sophie.Spec.Ledger.Generator.Metadata
+    Test.Sophie.Spec.Ledger.Generator.Presets
+    Test.Sophie.Spec.Ledger.Generator.Trace.Chain
+    Test.Sophie.Spec.Ledger.Generator.Trace.DCert
+    Test.Sophie.Spec.Ledger.Generator.Trace.Ledger
+    Test.Sophie.Spec.Ledger.Generator.Utxo
+    Test.Sophie.Spec.Ledger.Generator.EraGen
+    Test.Sophie.Spec.Ledger.Generator.ScriptClass
+    Test.Sophie.Spec.Ledger.Generator.SophieEraGen
+    Test.Sophie.Spec.Ledger.Orphans
+    Test.Sophie.Spec.Ledger.Rules.ClassifyTraces
+    Test.Sophie.Spec.Ledger.Serialisation.CDDLUtils
+    Test.Sophie.Spec.Ledger.Serialisation.Generators
+    Test.Sophie.Spec.Ledger.Serialisation.EraIndepGenerators
+    Test.Sophie.Spec.Ledger.Serialisation.Generators.Bootstrap
+    Test.Sophie.Spec.Ledger.Serialisation.Generators.Genesis
+    Test.Sophie.Spec.Ledger.Serialisation.GoldenUtils
+    Test.Sophie.Spec.Ledger.Shrinkers
+    Test.Sophie.Spec.Ledger.VestedSealUtils
+    Test.Sophie.Spec.Ledger.PropertyTests
+    Test.Sophie.Spec.Ledger.Rules.TestChain
+    Test.TestScenario
+  other-modules:
+      Test.Sophie.Spec.Ledger.Address.Bootstrap
+      Test.Sophie.Spec.Ledger.Address.CompactAddr
+      Test.Sophie.Spec.Ledger.ColeTranslation
+      Test.Sophie.Spec.Ledger.Examples.Federation
+      Test.Sophie.Spec.Ledger.Rules.TestDeleg
+      Test.Sophie.Spec.Ledger.Rules.TestPool
+      Test.Sophie.Spec.Ledger.Rules.TestPoolreap
+      Test.Sophie.Spec.Ledger.SophieTranslation
+     
+  build-depends:
+    base16-bytestring >= 1,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-crypto-test,
+    bcc-crypto-wrapper,
+    bcc-crypto,
+    bcc-ledger-cole,
+    bcc-ledger-cole-test,
+    bcc-ledger-core,
+    bcc-prelude-test,
+    bcc-prelude,
+    bcc-protocol-toptimum,
+    bcc-slotting,
+    cborg,
+    containers,
+    data-default-class,
+    directory,
+    generic-random,
+    hashable,
+    hedgehog-quickcheck,
+    hedgehog >= 1.0.4,
+    iproute,
+    nothunks,
+    process-extras,
+    zerepoch-ledger-api,
+    QuickCheck >= 2.13.2,
+    serialise,
+    sophie-spec-ledger,
+    small-steps-test,
+    small-steps,
+    strict-containers,
+    tasty-hunit,
+    tasty-quickcheck,
+    tasty,
+    text,
+    time,
+    transformers,
+    tree-diff,
+    vector
+
+test-suite sophie-spec-ledger-test
+  import:             base, project-config
+
+  type:                exitcode-stdio-1.0
+  main-is:             Tests.hs
+  other-modules:
+      Test.Control.Iterate.SetAlgebra
+      Test.Sophie.Spec.Ledger.Address.Bootstrap
+      Test.Sophie.Spec.Ledger.Address.CompactAddr
+      Test.Sophie.Spec.Ledger.ColeTranslation
+      Test.Sophie.Spec.Ledger.Examples
+      Test.Sophie.Spec.Ledger.Examples.Cast
+      Test.Sophie.Spec.Ledger.Examples.Combinators
+      Test.Sophie.Spec.Ledger.Examples.EmptyBlock
+      Test.Sophie.Spec.Ledger.Examples.Federation
+      Test.Sophie.Spec.Ledger.Examples.Init
+      Test.Sophie.Spec.Ledger.Examples.GenesisDelegation
+      Test.Sophie.Spec.Ledger.Examples.NetworkID
+      Test.Sophie.Spec.Ledger.Examples.Mir
+      Test.Sophie.Spec.Ledger.Examples.MirTransfer
+      Test.Sophie.Spec.Ledger.Examples.PoolLifetime
+      Test.Sophie.Spec.Ledger.Examples.PoolReReg
+      Test.Sophie.Spec.Ledger.Examples.TwoPools
+      Test.Sophie.Spec.Ledger.Examples.Updates
+      Test.Sophie.Spec.Ledger.Fees
+      Test.Sophie.Spec.Ledger.MultiSigExamples
+      Test.Sophie.Spec.Ledger.Pretty
+      Test.Sophie.Spec.Ledger.PropertyTests
+      Test.Sophie.Spec.Ledger.Rewards
+      Test.Sophie.Spec.Ledger.Rules.ClassifyTraces
+      Test.Sophie.Spec.Ledger.Rules.TestChain
+      Test.Sophie.Spec.Ledger.Rules.TestDeleg
+      Test.Sophie.Spec.Ledger.Rules.TestPool
+      Test.Sophie.Spec.Ledger.Rules.TestPoolreap
+      Test.Sophie.Spec.Ledger.SafeHash
+      Test.Sophie.Spec.Ledger.Serialisation
+      Test.Sophie.Spec.Ledger.Serialisation.CDDL
+      Test.Sophie.Spec.Ledger.Serialisation.Golden.Address
+      Test.Sophie.Spec.Ledger.Serialisation.Golden.Encoding
+      Test.Sophie.Spec.Ledger.Serialisation.Golden.Genesis
+      Test.Sophie.Spec.Ledger.Serialisation.Tripping.CBOR
+      Test.Sophie.Spec.Ledger.Serialisation.Tripping.JSON
+      Test.Sophie.Spec.Ledger.SophieTranslation
+      Test.Sophie.Spec.Ledger.STSTests
+      Test.Sophie.Spec.Ledger.UnitTests
+      Test.TestScenario
+
+  hs-source-dirs:      test
+  ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -- We set a bound here so that we're alerted of potential space
+      -- leaks in our generators (or test) code.
+      --
+      -- The 4 megabytes stack bound and 200 megabytes heap bound were
+      -- determined ad-hoc.
+      "-with-rtsopts=-K4m -M250m"
+  build-depends:
+      aeson,
+      base16-bytestring >= 1,
+      binary,
+      bytestring,
+      bcc-binary,
+      bcc-crypto-class,
+      bcc-crypto-optimum,
+      bcc-crypto-test,
+      bcc-crypto-wrapper,
+      bcc-crypto,
+      bcc-ledger-cole-test,
+      bcc-ledger-cole,
+      bcc-ledger-core,
+      bcc-prelude-test,
+      bcc-prelude,
+      bcc-protocol-toptimum,
+      bcc-slotting,
+      cborg,
+      containers,
+      data-default-class,
+      groups,
+      hedgehog >= 1.0.4,
+      hedgehog-quickcheck,
+      iproute,
+      prettyprinter,
+      QuickCheck,
+      scientific,
+      sophie-spec-ledger-test,
+      sophie-spec-ledger,
+      small-steps-test,
+      small-steps,
+      strict-containers,
+      tasty-hedgehog,
+      tasty-hunit,
+      tasty-quickcheck,
+      tasty,
+      time,
+      transformers,
+      tree-diff
+
+
+benchmark mainbench
+  import:             base, project-config
+
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:
+    bench
+    test
+  main-is:          Main.hs
+  other-modules:
+    Bench.Control.Iterate.SetAlgebra.Bimap,
+    BenchUTxOAggregate,
+    BenchValidation,
+    Sophie.Spec.Ledger.Bench.Gen
+    Sophie.Spec.Ledger.Bench.Rewards
+    Test.Sophie.Spec.Ledger.Examples.Cast
+
+  build-depends:
+    bytestring,
+    bcc-crypto-class,
+    bcc-crypto-optimum,
+    bcc-ledger-core,
+    bcc-prelude,
+    bcc-protocol-toptimum,
+    bcc-slotting,
+    containers,
+    criterion,
+    data-default-class,
+    deepseq,
+    mtl,
+    QuickCheck,
+    sophie-spec-ledger-test,
+    sophie-spec-ledger,
+    small-steps,
+    small-steps-test,
+    strict-containers,
+    transformers
+  ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -O

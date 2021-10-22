@@ -1,0 +1,28 @@
+# code owners are automatically assigned to review PRs
+
+# Sophie Design Spec
+sophie/design_spec/ @kantp @brunjlar @dcoutts
+
+# Formal Specs
+sophie/chain-and-ledger/formal-spec/ @jcorduan @polinavino
+sophie-ma/formal-spec/ @polinavino @WhatisRT
+aurum/formal-spec/ @polinavino @WhatisRT
+
+# CDDL
+sophie/chain-and-ledger/sophie-spec-ledger-test/cddl-files/ @redxaxder
+sophie-ma/sophie-ma-test/cddl-files/                        @redxaxder
+
+# Set Algebra
+semantics/executable-spec/src/Control/Iterate/      @TimSheard
+semantics/executable-spec/src/Control/Provenance.hs @TimSheard
+semantics/executable-spec/src/Control/SetAlgebra.hs @TimSheard
+
+# Coders library for CBOR encoding and decoding
+semantics/executable-spec/src/Data/Coders.hs @TimSheard
+
+# Devops
+.buildkite @devops
+.github    @devops
+nix        @devops
+*.nix      @devops
+bors.toml  @devops

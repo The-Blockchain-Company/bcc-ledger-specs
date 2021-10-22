@@ -1,0 +1,109 @@
+cabal-version: 3.0
+
+name:                bcc-ledger-aurum-test
+version:             0.1.0.0
+synopsis:            Tests for Bcc ledger introducing Zerepoch Core
+description:
+  This package builds upon the Jen ledger with support for extended UTxO
+  via Zerepoch Core.
+bug-reports:         https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
+license:             Apache-2.0
+author:              TBCO Formal Methods Team
+maintainer:          formal.methods@tbco.io
+copyright:           2021 The-Blockchain-Company
+category:            Network
+build-type:          Simple
+
+
+extra-source-files:
+  cddl-files/aurum.cddl
+  cddl-files/mock/crypto.cddl
+  cddl-files/mock/extras.cddl
+
+common base                         { build-depends: base                             >= 4.12       && < 4.15     }
+
+common project-config
+  default-language:   Haskell2010
+
+  ghc-options:        -Wall
+                      -Wcompat
+                      -Wincomplete-record-updates
+                      -Wincomplete-uni-patterns
+                      -Wpartial-fields
+                      -Wredundant-constraints
+                      -Wunused-packages
+
+library
+  import:             base, project-config
+
+  exposed-modules:
+    Test.Bcc.Ledger.Aurum.Examples.Consensus
+    Test.Bcc.Ledger.Aurum.Serialisation.Generators
+    Test.Bcc.Ledger.Aurum.AurumEraGen
+    Test.Bcc.Ledger.Aurum.Trace
+    Test.Bcc.Ledger.Aurum.ZerepochScripts
+  build-depends:
+    bytestring,
+    bcc-binary,
+    bcc-ledger-aurum,
+    bcc-ledger-core,
+    bcc-ledger-sophie-ma-test,
+    bcc-ledger-sophie-ma,
+    bcc-slotting,
+    containers,
+    data-default-class,
+    hashable,
+    zerepoch-tx,
+    zerepoch-ledger-api,
+    QuickCheck,
+    sophie-spec-ledger-test,
+    sophie-spec-ledger,
+    small-steps,
+    strict-containers,
+    text,
+  hs-source-dirs:
+    lib
+
+test-suite bcc-ledger-aurum-test
+  import:             base, project-config
+
+  type:                exitcode-stdio-1.0
+  main-is:             Tests.hs
+  hs-source-dirs:
+    test
+  other-modules:
+    Test.Bcc.Ledger.Aurum.Examples
+    Test.Bcc.Ledger.Aurum.Golden
+    Test.Bcc.Ledger.Aurum.PropertyTests
+    Test.Bcc.Ledger.Aurum.Serialisation.Canonical
+    Test.Bcc.Ledger.Aurum.Serialisation.CDDL
+    Test.Bcc.Ledger.Aurum.Serialisation.Tripping
+    Test.Bcc.Ledger.Aurum.Translation
+    Test.Bcc.Ledger.Aurum.Trials
+    Test.Bcc.Ledger.Aurum.Trials
+  build-depends:
+    base16-bytestring,
+    bytestring,
+    bcc-binary,
+    bcc-ledger-aurum,
+    bcc-ledger-aurum-test,
+    bcc-ledger-sophie-ma,
+    bcc-ledger-core,
+    bcc-ledger-sophie-ma-test,
+    bcc-slotting,
+    containers,
+    data-default-class,
+    zerepoch-core,
+    zerepoch-tx,
+    zerepoch-ledger-api,
+    QuickCheck,
+    small-steps,
+    small-steps-test,
+    sophie-spec-ledger,
+    sophie-spec-ledger-test,
+    strict-containers,
+    tasty,
+    tasty-hunit,
+    tasty-quickcheck,
+    time,
+    transformers,

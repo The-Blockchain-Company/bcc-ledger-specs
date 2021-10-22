@@ -1,0 +1,61 @@
+cabal-version:      2.4
+name:               bcc-protocol-toptimum
+version:            0.1.0.0
+description:        Bcc Protocol: Transitional Optimum
+bug-reports:        https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
+
+license:            Apache-2.0
+author:             TBCO Formal Methods Team
+maintainer:         formal.methods@tbco.io
+copyright:          2021 The-Blockchain-Company 
+
+source-repository head
+  type:     git
+  location: https://github.com/The-Blockchain-Company/bcc-ledger-specs
+
+common base
+  build-depends:
+    base >= 4.12 && < 4.15
+
+common project-config
+  default-language: Haskell2010
+
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+    -Wpartial-fields
+    -Wunused-packages
+
+library
+  import:
+    base, project-config
+
+  hs-source-dirs: src
+
+  exposed-modules:
+    Bcc.Protocol.TOptimum
+    Bcc.Protocol.TOptimum.BHeader
+    Bcc.Protocol.TOptimum.OCert
+    Bcc.Protocol.TOptimum.Rules.OCert
+    Bcc.Protocol.TOptimum.Rules.Overlay
+    Bcc.Protocol.TOptimum.Rules.Prtcl
+    Bcc.Protocol.TOptimum.Rules.Updn
+
+  build-depends:
+    aeson,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-ledger-core,
+    bcc-slotting,
+    containers,
+    deepseq,
+    nothunks,
+    mtl,
+    quiet,
+    sophie-spec-non-integral,
+    small-steps,
+    transformers,

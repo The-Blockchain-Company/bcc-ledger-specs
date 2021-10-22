@@ -1,0 +1,149 @@
+cabal-version: 3.0
+
+name:                bcc-ledger-test
+version:             0.1.0.0
+synopsis:
+  Testing harness, tests and benchmarks for Sophie style bcc ledgers
+-- description:
+-- bug-reports:
+license:             Apache-2.0
+author:              TBCO Formal Methods Team
+maintainer:          nicholas.clarke@tbco.io
+copyright:           2021 The-Blockchain-Company
+-- category:
+build-type:          Simple
+extra-source-files:
+  CHANGELOG.md
+  bench/resources/0_ledgerstate.cbor
+  bench/resources/0_tx.cbor
+
+common base
+  build-depends:      base >= 4.12 && < 4.15
+
+common project-config
+  default-language:   Haskell2010
+
+  ghc-options:        -Wall
+                      -Wcompat
+                      -Wincomplete-record-updates
+                      -Wincomplete-uni-patterns
+                      -Wpartial-fields
+                      -Wredundant-constraints
+                      -Wunused-packages
+
+library
+  import:             base, project-config
+  hs-source-dirs:     src
+  exposed-modules:
+    Test.Bcc.Ledger.BaseTypes
+    Test.Bcc.Ledger.Examples.TwoPhaseValidation
+    Test.Bcc.Ledger.Generic.Proof
+    Test.Bcc.Ledger.Generic.Indexed
+    Test.Bcc.Ledger.Generic.Updaters
+    Test.Bcc.Ledger.Properties
+    Test.Bcc.Ledger.TestableEra
+    Test.Bcc.Ledger.Aurum.Tools
+  build-depends:
+    aeson,
+    array,
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-ledger-aurum,
+    bcc-ledger-aurum-test,
+    bcc-ledger-core,
+    bcc-ledger-sophie-ma,
+    bcc-protocol-toptimum,
+    bcc-slotting,
+    containers,
+    data-default-class,
+    genvalidity,
+    genvalidity-scientific,
+    mtl,
+    zerepoch-ledger-api,
+    scientific,
+    sophie-spec-ledger,
+    sophie-spec-ledger-test,
+    small-steps,
+    small-steps-test,
+    strict-containers,
+    tasty,
+    tasty-hunit,
+    tasty-quickcheck,
+    time,
+    transformers,
+    QuickCheck,
+
+
+test-suite bcc-ledger-test
+  import:             base, project-config
+
+  type:                exitcode-stdio-1.0
+  main-is:             Tests.hs
+  hs-source-dirs:      test
+  other-modules:
+  build-depends:
+    bcc-ledger-test,
+    sophie-spec-ledger-test,
+    tasty,
+
+
+benchmark bench
+  import:             base, project-config
+
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:
+    bench
+  main-is:          Main.hs
+  other-modules:
+    Bench.Bcc.Ledger.ApplyTx
+    Bench.Bcc.Ledger.EpochBoundary
+    Bench.Bcc.Ledger.Serialisation.Generators
+  build-depends:
+    bytestring,
+    bcc-binary,
+    bcc-crypto-class,
+    bcc-ledger-aurum,
+    bcc-ledger-core,
+    bcc-ledger-aurum-test,
+    bcc-ledger-sophie-ma-test,
+    bcc-ledger-sophie-ma,
+    containers,
+    criterion,
+    data-default-class,
+    deepseq,
+    QuickCheck,
+    small-steps,
+    sophie-spec-ledger,
+    sophie-spec-ledger-test,
+    tasty-quickcheck,
+    tasty
+  ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -O2
+
+benchmark benchProperty
+  import:             base, project-config
+
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:
+    benchProperty
+  main-is:          Main.hs
+  other-modules:
+  build-depends:
+    bcc-ledger-aurum,
+    bcc-ledger-aurum-test,
+    bcc-ledger-sophie-ma-test,
+    QuickCheck,
+    small-steps,
+    sophie-spec-ledger,
+    sophie-spec-ledger-test,
+    tasty-quickcheck,
+    tasty
+  ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -O2

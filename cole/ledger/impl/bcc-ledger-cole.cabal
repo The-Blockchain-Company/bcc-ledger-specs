@@ -1,0 +1,321 @@
+cabal-version: 2.2
+
+name:                bcc-ledger-cole
+version:             0.1.0.0
+synopsis:            The blockchain layer of Bcc during the Cole era
+description:         The blockchain layer of Bcc during the Cole era
+license:             Apache-2.0
+author:              TBCO
+maintainer:          operations@tbco.io
+copyright:           2018 TBCO
+category:            Currency
+build-type:          Simple
+extra-source-files:  README.md
+
+flag development
+    description: Disable `-Werror`
+    default: False
+    manual: True
+
+flag test-normal-form
+    description: Test ledger state normal form during epoch validation
+    default: False
+    manual: True
+
+common base
+  build-depends:      base >= 4.12 && < 4.15
+
+common project-config
+  default-language:   Haskell2010
+  default-extensions: NoImplicitPrelude
+
+  ghc-options:        -Weverything
+                      -Wno-all-missed-specialisations
+                      -Wno-missing-deriving-strategies
+                      -Wno-missing-import-lists
+                      -Wno-missing-safe-haskell-mode
+                      -Wno-prepositive-qualified-module
+                      -Wno-safe
+                      -Wno-unsafe
+                      -Wunused-packages
+
+  if (!flag(development))
+    ghc-options:      -Werror
+
+library
+  import:             base, project-config
+
+  hs-source-dirs:      src
+  exposed-modules:
+                       Bcc.Chain.Block
+                       Bcc.Chain.Cole.API
+                       Bcc.Chain.Common
+                       Bcc.Chain.Constants
+                       Bcc.Chain.Delegation
+                       Bcc.Chain.Delegation.Validation.Activation
+                       Bcc.Chain.Delegation.Validation.Interface
+                       Bcc.Chain.Delegation.Validation.Scheduling
+                       Bcc.Chain.Epoch.File
+                       Bcc.Chain.Epoch.Validation
+                       Bcc.Chain.Genesis
+                       Bcc.Chain.MempoolPayload
+                       Bcc.Chain.ProtocolConstants
+                       Bcc.Chain.Slotting
+                       Bcc.Chain.Ssc
+                       Bcc.Chain.UTxO
+                       Bcc.Chain.UTxO.UTxO
+                       Bcc.Chain.UTxO.Validation
+                       Bcc.Chain.Update
+                       Bcc.Chain.Update.Proposal
+                       Bcc.Chain.Update.Validation.Endorsement
+                       Bcc.Chain.Update.Validation.Interface
+                       Bcc.Chain.Update.Validation.Registration
+                       Bcc.Chain.Update.Validation.Voting
+                       Bcc.Chain.Update.Vote
+                       Bcc.Chain.ValidationMode
+
+  other-modules:
+                       Bcc.Chain.Block.Block
+                       Bcc.Chain.Block.Body
+                       Bcc.Chain.Block.Boundary
+                       Bcc.Chain.Block.Header
+                       Bcc.Chain.Block.Proof
+                       Bcc.Chain.Block.Validation
+                       Bcc.Chain.Block.ValidationMode
+
+                       Bcc.Chain.Cole.API.Common
+                       Bcc.Chain.Cole.API.Mempool
+                       Bcc.Chain.Cole.API.Protocol
+                       Bcc.Chain.Cole.API.Validation
+
+                       Bcc.Chain.Common.AddrAttributes
+                       Bcc.Chain.Common.AddrSpendingData
+                       Bcc.Chain.Common.Address
+                       Bcc.Chain.Common.AddressHash
+                       Bcc.Chain.Common.Attributes
+                       Bcc.Chain.Common.BlockCount
+                       Bcc.Chain.Common.CBOR
+                       Bcc.Chain.Common.ChainDifficulty
+                       Bcc.Chain.Common.Compact
+                       Bcc.Chain.Common.KeyHash
+                       Bcc.Chain.Common.Entropic
+                       Bcc.Chain.Common.EntropicPortion
+                       Bcc.Chain.Common.Merkle
+                       Bcc.Chain.Common.NetworkMagic
+                       Bcc.Chain.Common.TxFeePolicy
+                       Bcc.Chain.Common.TxSizeLinear
+
+                       Bcc.Chain.Delegation.Certificate
+                       Bcc.Chain.Delegation.Map
+                       Bcc.Chain.Delegation.Payload
+
+                       Bcc.Chain.Genesis.AvvmBalances
+                       Bcc.Chain.Genesis.Config
+                       Bcc.Chain.Genesis.Data
+                       Bcc.Chain.Genesis.Delegation
+                       Bcc.Chain.Genesis.Generate
+                       Bcc.Chain.Genesis.Hash
+                       Bcc.Chain.Genesis.Initializer
+                       Bcc.Chain.Genesis.KeyHashes
+                       Bcc.Chain.Genesis.NonAvvmBalances
+                       Bcc.Chain.Genesis.Spec
+
+                       Bcc.Chain.Slotting.EpochAndSlotCount
+                       Bcc.Chain.Slotting.EpochNumber
+                       Bcc.Chain.Slotting.EpochSlots
+                       Bcc.Chain.Slotting.SlotCount
+                       Bcc.Chain.Slotting.SlotNumber
+
+                       Bcc.Chain.UTxO.Compact
+                       Bcc.Chain.UTxO.GenesisUTxO
+                       Bcc.Chain.UTxO.Tx
+                       Bcc.Chain.UTxO.TxAux
+                       Bcc.Chain.UTxO.TxPayload
+                       Bcc.Chain.UTxO.UTxOConfiguration
+                       Bcc.Chain.UTxO.TxProof
+                       Bcc.Chain.UTxO.TxWitness
+                       Bcc.Chain.UTxO.ValidationMode
+
+                       Bcc.Chain.Update.ApplicationName
+                       Bcc.Chain.Update.InstallerHash
+                       Bcc.Chain.Update.Payload
+                       Bcc.Chain.Update.Proof
+                       Bcc.Chain.Update.ProtocolParameters
+                       Bcc.Chain.Update.ProtocolParametersUpdate
+                       Bcc.Chain.Update.ProtocolVersion
+                       Bcc.Chain.Update.SoftforkRule
+                       Bcc.Chain.Update.SoftwareVersion
+                       Bcc.Chain.Update.SystemTag
+                       Bcc.Chain.Update.Validation.Interface.ProtocolVersionBump
+
+  build-depends:       aeson
+                     , base58-bytestring
+                     , bimap >=0.4 && <0.5
+                     , binary
+                     , bytestring
+                     , canonical-json
+                     , bcc-binary
+                     , bcc-crypto
+                     , bcc-crypto-wrapper
+                     , bcc-prelude
+                     , cborg
+                     , containers
+                     , contra-tracer
+                     , cryptonite
+                     , Cabal
+                     , deepseq
+                     , digest
+                     , directory
+                     , filepath
+                     , formatting
+                     , mtl
+                     , nothunks
+                     , quiet
+                     , resourcet
+                     , streaming
+                     , streaming-binary >=0.2 && <0.3
+                     , streaming-bytestring
+                     , text
+                     , time
+                     , vector
+
+test-suite bcc-ledger-cole-test
+  import:             base, project-config
+
+  hs-source-dirs:      test
+  main-is:             test.hs
+  type:                exitcode-stdio-1.0
+
+  other-modules:
+
+                       Test.Bcc.Chain.Block.CBOR
+                       Test.Bcc.Chain.Block.Gen
+                       Test.Bcc.Chain.Block.Model
+                       Test.Bcc.Chain.Block.Model.Examples
+                       Test.Bcc.Chain.Block.Size
+                       Test.Bcc.Chain.Block.Validation
+                       Test.Bcc.Chain.Block.ValidationMode
+                       Test.Bcc.Chain.Cole.API
+
+                       Test.Bcc.Chain.Buildable
+
+                       Test.Bcc.Chain.Common.Address
+                       Test.Bcc.Chain.Common.CBOR
+                       Test.Bcc.Chain.Common.Compact
+                       Test.Bcc.Chain.Common.Example
+                       Test.Bcc.Chain.Common.Gen
+                       Test.Bcc.Chain.Common.Entropic
+                       Test.Bcc.Chain.Config
+
+                       Test.Bcc.Chain.Delegation.CBOR
+                       Test.Bcc.Chain.Delegation.Certificate
+                       Test.Bcc.Chain.Delegation.Example
+                       Test.Bcc.Chain.Delegation.Gen
+                       Test.Bcc.Chain.Delegation.Model
+
+                       Test.Bcc.Chain.Elaboration.Block
+                       Test.Bcc.Chain.Elaboration.Delegation
+                       Test.Bcc.Chain.Elaboration.Keys
+                       Test.Bcc.Chain.Elaboration.Update
+                       Test.Bcc.Chain.Elaboration.UTxO
+
+                       Test.Bcc.Chain.Epoch.File
+
+                       Test.Bcc.Chain.Genesis.CBOR
+                       Test.Bcc.Chain.Genesis.Dummy
+                       Test.Bcc.Chain.Genesis.Example
+                       Test.Bcc.Chain.Genesis.Gen
+                       Test.Bcc.Chain.Genesis.Json
+
+                       Test.Bcc.Chain.MempoolPayload.CBOR
+                       Test.Bcc.Chain.MempoolPayload.Example
+                       Test.Bcc.Chain.MempoolPayload.Gen
+
+                       Test.Bcc.Chain.Ssc.CBOR
+
+                       Test.Bcc.Chain.Slotting.CBOR
+                       Test.Bcc.Chain.Slotting.Example
+                       Test.Bcc.Chain.Slotting.Gen
+                       Test.Bcc.Chain.Slotting.Properties
+
+                       Test.Bcc.Chain.UTxO.CBOR
+                       Test.Bcc.Chain.UTxO.Compact
+                       Test.Bcc.Chain.UTxO.Example
+                       Test.Bcc.Chain.UTxO.Gen
+                       Test.Bcc.Chain.UTxO.Model
+                       Test.Bcc.Chain.UTxO.ValidationMode
+
+                       Test.Bcc.Chain.Update.CBOR
+                       Test.Bcc.Chain.Update.Example
+                       Test.Bcc.Chain.Update.Gen
+                       Test.Bcc.Chain.Update.Properties
+
+                       Test.Bcc.Mirror
+
+                       Test.Options
+
+  build-depends:       base16-bytestring >= 1
+                     , bimap >=0.4 && <0.5
+                     , bytestring
+                     , bcc-binary
+                     , bcc-binary-test
+                     , bcc-ledger-cole
+                     , bcc-crypto
+                     , bcc-crypto-test
+                     , bcc-crypto-wrapper
+                     , bcc-prelude
+                     , bcc-prelude-test
+                     , cborg
+                     , containers
+                     , cole-spec-chain
+                     , cole-spec-ledger
+                     , directory
+                     , filepath
+                     , formatting
+                     , generic-monoid
+                     , hedgehog >= 1.0.4
+                     , microlens
+                     , resourcet
+                     , small-steps
+                     , small-steps-test
+                     , streaming
+                     , tasty
+                     , tasty-hedgehog
+                     , text
+                     , time
+                     , vector
+
+  ghc-options:         "-with-rtsopts=-K450K -M500M"
+
+test-suite epoch-validation-normal-form-test
+  import:             base, project-config
+
+  if (!flag(test-normal-form))
+   buildable: False
+
+  hs-source-dirs:      test
+  main-is:             NormalFormTest.hs
+  type:                exitcode-stdio-1.0
+
+  other-modules:
+                       Test.Bcc.Chain.Block.Validation
+                       Test.Bcc.Chain.Config
+                       Test.Bcc.Mirror
+                       Test.Options
+
+  build-depends:       bytestring
+                     , bcc-binary
+                     , bcc-ledger
+                     , bcc-crypto-wrapper
+                     , bcc-prelude
+                     , bcc-prelude-test
+                     , directory
+                     , filepath
+                     , hedgehog >= 1.0.4
+                     , resourcet
+                     , silently
+                     , streaming
+                     , tasty
+                     , tasty-hedgehog
+
+  ghc-options:         "-with-rtsopts=-K450K -M500M"
