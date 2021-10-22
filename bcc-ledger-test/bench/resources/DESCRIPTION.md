@@ -22,7 +22,7 @@ import Sophie.Spec.Ledger.STS.Ledger
 import Bcc.Ledger.Sophie
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes
 
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
 import Test.Sophie.Spec.Ledger.Generator.Presets
 import Test.Sophie.Spec.Ledger.Generator.Trace.Ledger ()
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()

@@ -74,7 +74,7 @@ import Test.Sophie.Spec.Ledger.Generator.EraGen
     genUtxo0,
   )
 import Test.Sophie.Spec.Ledger.Generator.Presets (genesisDelegs0)
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( maxLLSupply,
     mkHash,
   )

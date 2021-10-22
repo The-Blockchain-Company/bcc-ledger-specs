@@ -23,7 +23,7 @@ import Sophie.Spec.Ledger.PParams (PParams' (..))
 import Sophie.Spec.Ledger.Tx (Tx (..))
 import Sophie.Spec.Ledger.UTxO (UTxO)
 import Test.Bcc.Ledger.EraBuffet (TestCrypto)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, runSophieBase)
 import Test.Tasty.HUnit (Assertion, (@?=))
 
 type JenTest = JenEra TestCrypto

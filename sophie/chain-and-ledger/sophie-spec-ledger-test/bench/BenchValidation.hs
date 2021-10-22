@@ -66,7 +66,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core (GenEnv)
 import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen, MinLEDGER_STS)
 import Test.Sophie.Spec.Ledger.Generator.Presets (genEnv)
 import Test.Sophie.Spec.Ledger.Serialisation.Generators ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest, testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest, testGlobals)
 
 data ValidateInput era = ValidateInput Globals (NewEpochState era) (Block era)
 

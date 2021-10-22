@@ -89,7 +89,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
   )
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest, getBlockNonce)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest, getBlockNonce)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (testCase)
 

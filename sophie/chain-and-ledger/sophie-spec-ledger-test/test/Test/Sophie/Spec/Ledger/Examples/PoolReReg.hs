@@ -76,7 +76,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
   )
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (getBlockNonce, testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (getBlockNonce, testGlobals)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (testCase)
 

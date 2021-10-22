@@ -205,7 +205,7 @@ import Test.Sophie.Spec.Ledger.Generator.ScriptClass
     mkStakeScriptHashMap,
   )
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( GenesisKeyPair,
     VestedKeyPair,
     RawSeed (..),

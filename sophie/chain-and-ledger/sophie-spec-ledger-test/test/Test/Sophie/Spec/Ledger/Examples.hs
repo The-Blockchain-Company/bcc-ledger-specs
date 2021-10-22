@@ -15,7 +15,7 @@ import Sophie.Spec.Ledger.STS.Chain (CHAIN, ChainState, totalBcc)
 import Sophie.Spec.Ledger.Scripts ()
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C)
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, maxLLSupply, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, maxLLSupply, runSophieBase)
 import Test.Tasty.HUnit (Assertion, (@?=))
 
 data CHAINExample h = CHAINExample

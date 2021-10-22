@@ -11,7 +11,7 @@ import Bcc.Ledger.Coin (Coin (..))
 import Bcc.Ledger.Crypto (DSIGN)
 import Bcc.Ledger.Keys
 import Data.TreeDiff.Class (ToExpr (..))
-import Test.Sophie.Spec.Ledger.VestedSealUtils (Split (..))
+import Test.Sophie.Spec.Ledger.SentryUtils (Split (..))
 
 -- We need this here for the tests, but should not be in the actual library because
 -- a Num instance for this type does not make sense in the general case.

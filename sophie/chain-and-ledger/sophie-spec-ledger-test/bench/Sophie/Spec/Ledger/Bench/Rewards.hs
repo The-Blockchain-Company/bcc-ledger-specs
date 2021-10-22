@@ -67,7 +67,7 @@ import Test.Sophie.Spec.Ledger.Generator.Trace.Chain
     registerGenesisStaking,
     registerVestedStaking, 
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (testGlobals)
 
 -- | Generate a chain state at a given epoch. Since we are only concerned about
 -- rewards, this will populate the chain with empty blocks (only issued by the

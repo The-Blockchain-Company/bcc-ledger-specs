@@ -21,7 +21,7 @@ import qualified Data.Sequence.Strict as StrictSeq
 import Sophie.Spec.Ledger.API
 import Test.Sophie.Spec.Ledger.Examples.Consensus
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils hiding (mkVRFKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils hiding (mkVRFKeyPair)
 
 type StandardEvie = EvieEra StandardCrypto
 

@@ -48,7 +48,7 @@ import Sophie.Spec.Ledger.PParams (PParams, PParams' (..))
 import Test.Sophie.Spec.Ledger.Generator.Core
   ( AllIssuerKeys (..),
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
 
 -- | Number of Core Node
 numCoreNodes :: Word64

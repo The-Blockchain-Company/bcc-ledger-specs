@@ -41,7 +41,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
     mkBlockFakeVRF,
     mkOCert,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest, getBlockNonce)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest, getBlockNonce)
 
 -- =============================================================
 

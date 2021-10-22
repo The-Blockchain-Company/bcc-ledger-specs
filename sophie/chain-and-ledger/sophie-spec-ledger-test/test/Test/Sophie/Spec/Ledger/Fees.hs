@@ -83,7 +83,7 @@ import Sophie.Spec.Ledger.UTxO (makeWitnessesVKey)
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (Mock, StandardCrypto)
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( RawSeed (..),
     mkAddr,
     mkKeyPair,

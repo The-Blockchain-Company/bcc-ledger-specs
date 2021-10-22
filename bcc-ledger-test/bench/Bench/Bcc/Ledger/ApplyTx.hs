@@ -39,7 +39,7 @@ import Sophie.Spec.Ledger.API
     applyTxsTransition,
   )
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C_Crypto)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (testGlobals)
 
 type SophieBench = SophieEra C_Crypto
 

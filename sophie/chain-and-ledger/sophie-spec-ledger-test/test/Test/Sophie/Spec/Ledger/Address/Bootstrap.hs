@@ -98,7 +98,7 @@ import qualified Test.Sophie.Spec.Ledger.ConcreteCryptoTypes as Original
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (testSTS)
+import Test.Sophie.Spec.Ledger.SentryUtils (testSTS)
 import Test.Tasty (TestTree)
 import Test.Tasty.HUnit
   ( Assertion,

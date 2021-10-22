@@ -79,7 +79,7 @@ import Test.Sophie.Spec.Ledger.Rules.TestChain
   )
 import Test.Sophie.Spec.Ledger.Serialisation.EraIndepGenerators ()
 import Test.Sophie.Spec.Ledger.SophieTranslation (testGroupSophieTranslation)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (ChainProperty, RawSeed, mkKeyPair')
+import Test.Sophie.Spec.Ledger.SentryUtils (ChainProperty, RawSeed, mkKeyPair')
 import Test.Tasty (TestTree, localOption, testGroup)
 import qualified Test.Tasty.QuickCheck as TQC
 

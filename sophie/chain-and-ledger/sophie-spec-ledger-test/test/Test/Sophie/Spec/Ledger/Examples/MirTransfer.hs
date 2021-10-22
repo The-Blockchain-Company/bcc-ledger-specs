@@ -34,7 +34,7 @@ import Sophie.Spec.Ledger.API
 import Sophie.Spec.Ledger.PParams (PParams' (..), ProtVer (..), emptyPParams)
 import Sophie.Spec.Ledger.STS.Deleg (DelegPredicateFailure (..))
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C_Crypto)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (RawSeed (..), applySTSTest, mkKeyPair, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (RawSeed (..), applySTSTest, mkKeyPair, runSophieBase)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (Assertion, testCase, (@?=))
 

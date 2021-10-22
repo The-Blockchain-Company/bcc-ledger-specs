@@ -123,7 +123,7 @@ import qualified Test.Sophie.Spec.Ledger.Rules.TestPool as TestPool
     poolStateIsInternallyConsistent,
   )
 import qualified Test.Sophie.Spec.Ledger.Rules.TestPoolreap as TestPoolreap
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( ChainProperty,
     epochFromSlotNo,
     runSophieBase,

@@ -105,7 +105,7 @@ import Test.Sophie.Spec.Ledger.Generator.ScriptClass (Quantifier (..), ScriptCla
 import Test.Sophie.Spec.Ledger.Generator.Update (genM, genSophiePParamsDelta)
 import qualified Test.Sophie.Spec.Ledger.Generator.Update as Sophie (genPParams)
 import Test.Sophie.Spec.Ledger.Generator.Utxo (encodedLen, myDiscard)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (unsafeBoundRational)
+import Test.Sophie.Spec.Ledger.SentryUtils (unsafeBoundRational)
 
 -- ============================================================
 

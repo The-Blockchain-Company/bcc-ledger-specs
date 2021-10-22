@@ -96,7 +96,7 @@ import Test.Bcc.Ledger.Aurum.Serialisation.Generators ()
 import Test.QuickCheck
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C_Crypto)
 import Test.Sophie.Spec.Ledger.Serialisation.EraIndepGenerators ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, runSophieBase)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (testProperty)
 

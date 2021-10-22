@@ -57,7 +57,7 @@ import Test.Sophie.Spec.Ledger.Generator.Trace.Chain (mkGenesisChainState)
 import Test.Sophie.Spec.Ledger.Generator.Trace.DCert (CERTS)
 import Test.Sophie.Spec.Ledger.Generator.Utxo (genTx)
 import Test.Sophie.Spec.Ledger.Serialisation.Generators ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest)
 
 -- ===============================================================
 

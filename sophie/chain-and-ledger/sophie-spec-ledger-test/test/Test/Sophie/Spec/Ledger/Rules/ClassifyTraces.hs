@@ -99,7 +99,7 @@ import Test.Sophie.Spec.Ledger.Generator.Presets (genEnv)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
 import Test.Sophie.Spec.Ledger.Generator.Trace.Chain (mkGenesisChainState)
 import Test.Sophie.Spec.Ledger.Generator.Trace.Ledger (mkGenesisLedgerState)
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
 
 -- =================================================================
 

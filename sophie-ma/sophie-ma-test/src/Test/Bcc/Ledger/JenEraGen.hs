@@ -62,7 +62,7 @@ import Test.Sophie.Spec.Ledger.Generator.ScriptClass
     exponential,
   )
 import Test.Sophie.Spec.Ledger.Generator.Update (genPParams, genSophiePParamsDelta)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (Split (..))
+import Test.Sophie.Spec.Ledger.SentryUtils (Split (..))
 
 {------------------------------------------------------------------------------
  EraGen instance for JenEra - This instance makes it possible to run the

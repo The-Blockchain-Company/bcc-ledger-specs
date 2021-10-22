@@ -101,7 +101,7 @@ import Sophie.Spec.Ledger.STS.Mir (emptyInstantaneousRewards)
 import Sophie.Spec.Ledger.Tx (TxIn)
 import Sophie.Spec.Ledger.TxBody (MIRPot (..), PoolParams (..), RewardAcnt (..))
 import Sophie.Spec.Ledger.UTxO (txins, txouts)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (epochFromSlotNo, getBlockNonce)
+import Test.Sophie.Spec.Ledger.SentryUtils (epochFromSlotNo, getBlockNonce)
 
 -- ==================================================
 

@@ -23,7 +23,7 @@ import Sophie.Spec.Ledger.API
   )
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C_Crypto)
 import qualified Test.Sophie.Spec.Ledger.Examples.Cast as Cast
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, runSophieBase)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (Assertion, assertBool, testCase)
 

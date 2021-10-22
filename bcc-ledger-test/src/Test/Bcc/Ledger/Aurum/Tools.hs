@@ -36,7 +36,7 @@ import Test.Bcc.Ledger.Aurum.ZerepochScripts (defaultCostModel)
 import Test.Bcc.Ledger.Examples.TwoPhaseValidation (A, datumExample1, initUTxO, someKeys, testSystemStart, validatingBody, validatingRedeemersEx1)
 import Test.Bcc.Ledger.Generic.Proof (Evidence (Mock), Proof (Aurum))
 import Test.Bcc.Ledger.Generic.Updaters
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, runSophieBase)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (assertFailure, testCase)
 import Test.Tasty.QuickCheck (Gen, Property, chooseBoundedIntegral, counterexample, testProperty)

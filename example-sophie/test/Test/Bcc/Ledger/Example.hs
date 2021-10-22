@@ -67,7 +67,7 @@ import Test.Sophie.Spec.Ledger.Generator.ScriptClass
 import Test.Sophie.Spec.Ledger.Generator.Trace.Chain ()
 import Test.Sophie.Spec.Ledger.Generator.Update (genPParams, genSophiePParamsDelta)
 import Test.Sophie.Spec.Ledger.Serialisation.EraIndepGenerators ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest)
 
 {------------------------------------------------------------------------------
   ExampleEra instances for EraGen and ScriptClass

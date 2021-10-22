@@ -58,7 +58,7 @@ import Test.Sophie.Spec.Ledger.Serialisation.GoldenUtils
     checkEncodingCBOR,
     checkEncodingCBORAnnotated,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (RawSeed (..), mkGenKey, mkKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils (RawSeed (..), mkGenKey, mkKeyPair)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (Assertion, testCase)
 

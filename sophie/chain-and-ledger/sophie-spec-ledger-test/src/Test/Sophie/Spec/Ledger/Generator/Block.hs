@@ -57,7 +57,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
   )
 import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen (..), MinLEDGER_STS)
 import Test.Sophie.Spec.Ledger.Generator.Trace.Ledger ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( epochFromSlotNo,
     maxKESIterations,
     runSophieBase,

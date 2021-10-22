@@ -77,7 +77,7 @@ import Test.Sophie.Spec.Ledger.BenchmarkFunctions
     ledgerStateWithNregisteredKeys,
     ledgerStateWithNregisteredPools,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest, testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest, testGlobals)
 
 -- Generator for coin. This is required, but its ouput is completely discarded.
 -- What is going on here?

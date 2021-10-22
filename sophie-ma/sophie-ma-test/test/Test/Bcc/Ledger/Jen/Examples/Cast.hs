@@ -27,7 +27,7 @@ import Bcc.Ledger.Keys
     KeyRole (..),
   )
 import Test.Bcc.Ledger.EraBuffet (TestCrypto)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (RawSeed (..), mkAddr, mkKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils (RawSeed (..), mkAddr, mkKeyPair)
 
 -- | Alice's payment key pair
 alicePay :: KeyPair 'Payment TestCrypto

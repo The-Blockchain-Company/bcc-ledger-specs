@@ -94,7 +94,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
     tooLateInEpoch,
   )
 import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen (..))
-import Test.Sophie.Spec.Ledger.VestedSealUtils(testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils(testGlobals)
 -- ======================================================
 
 data CertCred era

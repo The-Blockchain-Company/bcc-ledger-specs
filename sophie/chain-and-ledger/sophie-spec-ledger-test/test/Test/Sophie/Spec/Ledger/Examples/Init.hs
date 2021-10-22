@@ -47,7 +47,7 @@ import Sophie.Spec.Ledger.STS.Chain
   )
 import Sophie.Spec.Ledger.UTxO (UTxO (..), balance)
 import Test.Sophie.Spec.Ledger.Examples.Federation (genDelegs)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest, maxLLSupply, mkHash, unsafeBoundRational)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest, maxLLSupply, mkHash, unsafeBoundRational)
 
 -- === Initial Protocol Parameters
 --

@@ -70,7 +70,7 @@ library
     Test.Sophie.Spec.Ledger.Serialisation.Generators.Genesis
     Test.Sophie.Spec.Ledger.Serialisation.GoldenUtils
     Test.Sophie.Spec.Ledger.Shrinkers
-    Test.Sophie.Spec.Ledger.VestedSealUtils
+    Test.Sophie.Spec.Ledger.SentryUtils
     Test.Sophie.Spec.Ledger.PropertyTests
     Test.Sophie.Spec.Ledger.Rules.TestChain
     Test.TestScenario

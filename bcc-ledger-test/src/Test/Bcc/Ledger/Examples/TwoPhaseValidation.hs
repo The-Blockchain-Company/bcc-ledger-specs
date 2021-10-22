@@ -137,7 +137,7 @@ import Test.Bcc.Ledger.Generic.Proof
 import Test.Bcc.Ledger.Generic.Updaters
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (C_Crypto)
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( RawSeed (..),
     applySTSTest,
     mkKESKeyPair,

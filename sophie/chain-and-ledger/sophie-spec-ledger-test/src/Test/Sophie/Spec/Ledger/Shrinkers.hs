@@ -27,7 +27,7 @@ import Sophie.Spec.Ledger.Scripts
 import Sophie.Spec.Ledger.Tx
 import Sophie.Spec.Ledger.TxBody
 import Test.QuickCheck (shrinkIntegral, shrinkList)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (SophieTest)
+import Test.Sophie.Spec.Ledger.SentryUtils (SophieTest)
 
 shrinkBlock ::
   Block h ->

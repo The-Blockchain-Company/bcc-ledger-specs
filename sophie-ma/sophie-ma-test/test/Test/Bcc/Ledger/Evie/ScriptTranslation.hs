@@ -25,7 +25,7 @@ import Test.Bcc.Ledger.EraBuffet
     SophieEra,
     StandardCrypto,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (applySTSTest, runSophieBase)
+import Test.Sophie.Spec.Ledger.SentryUtils (applySTSTest, runSophieBase)
 import Test.Tasty (TestTree)
 import Test.Tasty.HUnit (testCase)
 

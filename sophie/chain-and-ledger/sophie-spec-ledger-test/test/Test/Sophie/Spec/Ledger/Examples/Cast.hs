@@ -73,7 +73,7 @@ import Sophie.Spec.Ledger.TxBody
 import Test.Sophie.Spec.Ledger.Generator.Core
   ( AllIssuerKeys (..),
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( RawSeed (..),
     mkAddr,
     mkKESKeyPair,

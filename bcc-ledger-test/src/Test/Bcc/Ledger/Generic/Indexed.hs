@@ -40,7 +40,7 @@ import qualified Sophie.Spec.Ledger.Scripts as Multi
 import Sophie.Spec.Ledger.TxBody (WitVKey (..))
 import Sophie.Spec.Ledger.UTxO (makeWitnessVKey)
 import Test.Bcc.Ledger.Generic.Proof
-import Test.Sophie.Spec.Ledger.VestedSealUtils (RawSeed (..), mkKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils (RawSeed (..), mkKeyPair)
 
 -- ===========================================================================
 -- Classes for "picking" the unique element of a type associated with an Int

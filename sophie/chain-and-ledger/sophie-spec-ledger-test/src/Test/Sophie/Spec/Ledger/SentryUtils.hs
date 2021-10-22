@@ -12,7 +12,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-module Test.Sophie.Spec.Ledger.VestedSealUtils
+module Test.Sophie.Spec.Ledger.SentryUtils
   ( mkSeedFromWords,
     mkCertifiedVRF,
     epochFromSlotNo,

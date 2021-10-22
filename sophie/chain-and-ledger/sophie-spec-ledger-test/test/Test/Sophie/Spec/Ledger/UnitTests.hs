@@ -116,7 +116,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
 import Test.Sophie.Spec.Ledger.Generator.EraGen (genesisId)
 import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
 import Test.Tasty
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck

@@ -46,7 +46,7 @@ import Sophie.Spec.Ledger.UTxO (makeWitnessesVKey)
 import qualified Test.Bcc.Ledger.Jen.Examples.Consensus as SLE
 import qualified Test.Sophie.Spec.Ledger.Examples.Consensus as SLE
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils (mkAddr)
+import Test.Sophie.Spec.Ledger.SentryUtils (mkAddr)
 
 type StandardAurum = AurumEra StandardCrypto
 

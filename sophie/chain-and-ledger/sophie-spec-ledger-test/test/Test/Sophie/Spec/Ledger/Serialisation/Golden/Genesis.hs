@@ -36,7 +36,7 @@ import Sophie.Spec.Ledger.PParams (PParams' (..), emptyPParams)
 import Test.Bcc.Prelude
 import Test.Sophie.Spec.Ledger.ConcreteCryptoTypes (StandardCrypto)
 import qualified Test.Sophie.Spec.Ledger.Examples.Cast as Cast
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( RawSeed (..),
     mkKeyPair,
     mkVRFKeyPair,

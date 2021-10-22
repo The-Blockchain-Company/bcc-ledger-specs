@@ -78,7 +78,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core (GenEnv (..), KeySpace (..))
 import Test.Sophie.Spec.Ledger.Generator.Delegation (CertCred (..), genDCert)
 import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen (..))
 import Test.Sophie.Spec.Ledger.Generator.ScriptClass (scriptKeyCombination)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (testGlobals)
+import Test.Sophie.Spec.Ledger.SentryUtils (testGlobals)
 
 -- | This is a non-spec STS used to generate a sequence of certificates with
 -- witnesses.

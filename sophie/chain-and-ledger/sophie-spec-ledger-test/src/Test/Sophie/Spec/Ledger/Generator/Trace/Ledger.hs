@@ -65,7 +65,7 @@ import Test.Sophie.Spec.Ledger.Generator.EraGen
 import Test.Sophie.Spec.Ledger.Generator.Presets (genesisDelegs0)
 import Test.Sophie.Spec.Ledger.Generator.Trace.DCert (CERTS)
 import Test.Sophie.Spec.Ledger.Generator.Utxo (genTx)
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( applySTSTest,
     runSophieBase,
   )

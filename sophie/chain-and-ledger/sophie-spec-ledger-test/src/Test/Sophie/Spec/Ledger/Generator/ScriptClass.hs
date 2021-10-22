@@ -60,7 +60,7 @@ import qualified Test.QuickCheck as QC
 import Test.Sophie.Spec.Ledger.Generator.Constants
   ( Constants (..),
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (RawSeed (..), mkKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils (RawSeed (..), mkKeyPair)
 
 {------------------------------------------------------------------------------
   ScriptClass defines the operations that enable an Era's scripts to

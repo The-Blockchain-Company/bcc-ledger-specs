@@ -44,7 +44,7 @@ import Test.Sophie.Spec.Ledger.Generator.Constants
 import Test.Sophie.Spec.Ledger.Generator.Core
 import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen (..), allScripts, someKeyPairs)
 import Test.Sophie.Spec.Ledger.Generator.ScriptClass (keyPairs)
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( maxKESIterations,
     mkKESKeyPair,
     mkVRFKeyPair,

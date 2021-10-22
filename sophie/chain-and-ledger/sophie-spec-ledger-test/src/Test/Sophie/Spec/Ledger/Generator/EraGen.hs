@@ -86,7 +86,7 @@ import Test.Sophie.Spec.Ledger.Generator.Core
     genesisCoins,
   )
 import Test.Sophie.Spec.Ledger.Generator.ScriptClass (ScriptClass, baseScripts, combinedScripts, keyPairs)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (Split (..))
+import Test.Sophie.Spec.Ledger.SentryUtils (Split (..))
 
 {------------------------------------------------------------------------------
  An EraGen instance makes it possible to run the Sophie property tests. The idea

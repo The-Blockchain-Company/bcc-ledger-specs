@@ -199,7 +199,7 @@ import Test.Sophie.Spec.Ledger.Serialisation.GoldenUtils
     checkEncodingCBOR,
     checkEncodingCBORAnnotated,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
 import Test.Tasty (TestTree, testGroup)
 
 -- ============================================

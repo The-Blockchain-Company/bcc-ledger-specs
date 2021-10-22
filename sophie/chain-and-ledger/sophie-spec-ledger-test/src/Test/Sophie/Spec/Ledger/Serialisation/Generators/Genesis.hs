@@ -48,7 +48,7 @@ import Sophie.Spec.Ledger.Genesis
 import Sophie.Spec.Ledger.PParams
 import Sophie.Spec.Ledger.Scripts
 import Sophie.Spec.Ledger.TxBody
-import Test.Sophie.Spec.Ledger.VestedSealUtils (mkHash, unsafeBoundRational)
+import Test.Sophie.Spec.Ledger.SentryUtils (mkHash, unsafeBoundRational)
 
 genSophieGenesis :: Era era => Gen (SophieGenesis era)
 genSophieGenesis =

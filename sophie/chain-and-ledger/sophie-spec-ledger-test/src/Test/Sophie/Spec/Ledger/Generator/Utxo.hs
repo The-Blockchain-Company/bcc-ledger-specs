@@ -118,7 +118,7 @@ import Test.Sophie.Spec.Ledger.Generator.EraGen (EraGen (..))
 import Test.Sophie.Spec.Ledger.Generator.ScriptClass (scriptKeyCombination)
 import Test.Sophie.Spec.Ledger.Generator.Trace.DCert (CERTS, genDCerts)
 import Test.Sophie.Spec.Ledger.Generator.Update (genUpdate)
-import Test.Sophie.Spec.Ledger.VestedSealUtils (Split (..))
+import Test.Sophie.Spec.Ledger.SentryUtils (Split (..))
 
 -- Instances only
 

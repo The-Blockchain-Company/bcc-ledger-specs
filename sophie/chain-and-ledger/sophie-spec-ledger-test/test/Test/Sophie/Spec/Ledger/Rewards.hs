@@ -127,7 +127,7 @@ import Test.Sophie.Spec.Ledger.Generator.SophieEraGen ()
 import Test.Sophie.Spec.Ledger.Rules.TestChain (forAllChainTrace)
 import Test.Sophie.Spec.Ledger.Serialisation.EraIndepGenerators ()
 import Test.Sophie.Spec.Ledger.Serialisation.Generators ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils
+import Test.Sophie.Spec.Ledger.SentryUtils
   ( runSophieBase,
     testGlobals,
     unsafeBoundRational,

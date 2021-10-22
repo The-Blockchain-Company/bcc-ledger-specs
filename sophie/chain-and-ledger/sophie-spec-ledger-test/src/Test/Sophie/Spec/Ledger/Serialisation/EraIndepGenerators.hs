@@ -156,7 +156,7 @@ import Test.Sophie.Spec.Ledger.Serialisation.Generators.Bootstrap
   ( genBootstrapAddress,
     genSignature,
   )
-import Test.Sophie.Spec.Ledger.VestedSealUtils (unsafeBoundRational)
+import Test.Sophie.Spec.Ledger.SentryUtils (unsafeBoundRational)
 
 -- =======================================================
 

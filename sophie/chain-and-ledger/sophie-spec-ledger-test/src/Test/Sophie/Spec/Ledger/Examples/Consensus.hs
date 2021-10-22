@@ -56,7 +56,7 @@ import Sophie.Spec.Ledger.Tx
 import Sophie.Spec.Ledger.UTxO
 import Test.Sophie.Spec.Ledger.Generator.Core
 import Test.Sophie.Spec.Ledger.Orphans ()
-import Test.Sophie.Spec.Ledger.VestedSealUtils hiding (mkVRFKeyPair)
+import Test.Sophie.Spec.Ledger.SentryUtils hiding (mkVRFKeyPair)
 
 type KeyPairWits era = [KeyPair 'Witness (Bcc.Ledger.Era.Crypto era)]
 
@@ -502,7 +502,7 @@ exampleKeys =
 keyToCredential :: Bcc.Ledger.Crypto.Crypto c => KeyPair r c -> Credential r c
 keyToCredential = KeyHashObj . hashKey . vKey
 
--- | @mkKeyPair'@ from @Test.Sophie.Spec.Ledger.VestedSealUtils@ doesn't work for real
+-- | @mkKeyPair'@ from @Test.Sophie.Spec.Ledger.SentryUtils@ doesn't work for real
 -- crypto:
 -- <https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues/1770>
 mkDSIGNKeyPair ::
