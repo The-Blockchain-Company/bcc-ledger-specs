@@ -8,7 +8,7 @@ module Sophie.Spec.Ledger.HardForks
     validatePoolRewardAccountNetID,
     allowScriptStakeCredsToEarnRewards,
     translateTimeForZerepochScripts,
-    sealRewards,
+    sentryRewards,
   )
 where
 
@@ -22,11 +22,11 @@ aggregatedRewards ::
   Bool
 aggregatedRewards pp = pvMajor (getField @"_protocolVersion" pp) > 2
 
-sealRewards ::
+sentryRewards ::
   (HasField "_protocolVersion" pp ProtVer) =>
   pp ->
   Bool
-sealRewards pp = pvSeal (getField @"_protocolVersion" pp) > 0 
+sentryRewards pp = pvSentry (getField @"_protocolVersion" pp) > 0 
 
 -- | Starting with protocol version 5, the MIR certs will also be
 -- able to transfer funds between the reserves and the treasury.

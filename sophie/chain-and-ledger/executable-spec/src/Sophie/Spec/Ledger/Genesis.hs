@@ -339,7 +339,7 @@ data ValidationErr
   = EpochNotLongEnough EpochSize Word64 Rational EpochSize
   | MaxKESEvolutionsUnsupported Word64 Word
   | QuorumTooSmall Word64 Word64 Word64
-  | SealNotValid Word64 Word64 Word64
+  | SentryNotValid Word64 Word64 Word64
   deriving (Eq, Show)
 
 describeValidationErr :: ValidationErr -> Text
@@ -375,16 +375,16 @@ describeValidationErr (QuorumTooSmall q maxTooSmal nodes) =
       " genesis nodes 'updateQuorum' must be greater than ",
       Text.pack (show maxTooSmal)
     ]
-describeValidationErr (SealNotValid s sealVerVal numSeal ) =
+describeValidationErr (SentryNotValid s sentryVerVal numSentry ) =
   mconcat
     [ "You have specified a 'vestMultiple' which is",
-      " invalid compared to the seal val verification.",
+      " invalid compared to the sentry val verification.",
       " You requested ",
       Text.pack (show s),
       ", but given ",
-      Text.pack (show numSeal),
+      Text.pack (show numSentry),
       " vested holders, 'vestMultiple must be greater than",
-      Text.pack (show sealVerVal)
+      Text.pack (show sentryVerVal)
     ]
 
 -- | Do some basic sanity checking on the Sophie genesis file. #TODO vested 777 check
@@ -412,7 +412,7 @@ validateGenesis
         [ checkEpochLength,
           checkKesEvolutions,
           checkQuorumSize,
-          checkSealVal,
+          checkSentryVal,
           checkVestedSize
         ]
       checkEpochLength =
@@ -445,12 +445,12 @@ validateGenesis
          in if numGenesisNodes == 0 || sgUpdateQuorum > maxTooSmal
               then Nothing
               else Just $ QuorumTooSmall sgUpdateQuorum maxTooSmal numGenesisNodes
-      checkSealVal =
-        let numSeal = fromIntegral $ length sgVestedDelegs `div` 3
-            sealVerVal = numSeal `div` 2
-         in if numSeal == 0 || sgVestMultiple > sealVerVal
+      checkSentryVal =
+        let numSentry = fromIntegral $ length sgVestedDelegs `div` 3
+            sentryVerVal = numSentry `div` 2
+         in if numSentry == 0 || sgVestMultiple > sentryVerVal
               then Nothing 
-              else Just $ SealNotValid sgVestMultiple sealVerVal numSeal
+              else Just $ SentryNotValid sgVestMultiple sentryVerVal numSentry
       checkVestedSize =
         let numVested = fromIntegral $ length sgVestedDelegs
             maxTooSmal = numVested `div` 2

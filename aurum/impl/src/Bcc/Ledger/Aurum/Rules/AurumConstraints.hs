@@ -1,4 +1,4 @@
--- Developing an Vested Seal evaluator invloves multiple steps to ensure it meets specifications
+-- Developing an Vested Sentry evaluator invloves multiple steps to ensure it meets specifications
 -- First, we develop a language to express logic problems
 type Var   = String
 type Value = String

@@ -22,9 +22,9 @@
 {-# LANGUAGE NumericUnderscores #-}
 {-# LANGUAGE Arrows #-}
 
-module Sophie.Spec.Ledger.SealOps( 
-  SealOpen (..),
-  Seal (..),
+module Sophie.Spec.Ledger.SentryOps( 
+  SentryOpen (..),
+  Sentry (..),
   DiffTime (..),
   poolCalc,
 )where
@@ -118,13 +118,13 @@ import Sophie.Spec.Ledger.LedgerState
   )
 
 -----------------------------------------------------------------------------------------------
-  ---code--Proxies, seals, time counting monads, file locks. 
+  ---code--Proxies, sentrys, time counting monads, file locks. 
 -------- --------------------------------------------------------------------------------------
-data Seal = TotalPools | SealVal | SealIndx | SealList| SealVar deriving (Eq, Ord, Show)
+data Sentry = TotalPools | SentryVal | SentryIndx | SentryList| SentryVar deriving (Eq, Ord, Show)
 
 data List a = Nil | Cons a (List a) deriving (Eq, Ord, Show)
 
-data SealOpen = SealVerify Int Int | SealElem Int deriving (Eq, Ord, Show)
+data SentryOpen = SentryVerify Int Int | SentryElem Int deriving (Eq, Ord, Show)
 
 data Set a = Set [a] deriving (Eq, Ord, Show)
 
@@ -145,8 +145,8 @@ map12 = (\(x) y z -> (!!)[y]z)
 watch :: Bool -> String
 watch b = show b ++ " Bcc pools are in existence " ++ 
   case b of 
-    True -> "...The next seal has now opened!"
-    False -> "...The next seal remains closed" ++ truth
+    True -> "...The next sentry has now opened!"
+    False -> "...The next sentry remains closed" ++ truth
       where truth = 
               "Gods will is done"
 lie = 

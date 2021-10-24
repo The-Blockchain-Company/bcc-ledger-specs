@@ -20,14 +20,14 @@ import qualified Prelude
 -- | Communication protocol version
 data ProtocolVersion = ProtocolVersion
   { pvMajor :: !Word16,
-    pvSeal  :: !Word16
+    pvSentry  :: !Word16
   }
   deriving (Eq, Generic, Ord)
   deriving anyclass (NFData, NoThunks)
 
 instance Show ProtocolVersion where
   show pv =
-    intercalate "." [show (pvMajor pv), show (pvSeal pv)]
+    intercalate "." [show (pvMajor pv), show (pvSentry pv)]
 
 instance Buildable ProtocolVersion where
   build = bprint shown
@@ -37,12 +37,12 @@ instance ToJSON ProtocolVersion
 
 instance ToCBOR ProtocolVersion where
   toCBOR pv =
-    encodeListLen 2 <> toCBOR (pvMajor pv) <> toCBOR (pvSeal pv)
+    encodeListLen 2 <> toCBOR (pvMajor pv) <> toCBOR (pvSentry pv)
 
   encodedSizeExpr f pv =
     1
       + encodedSizeExpr f (pvMajor <$> pv)
-      + encodedSizeExpr f (pvSeal <$> pv)
+      + encodedSizeExpr f (pvSentry <$> pv)
      
 instance FromCBOR ProtocolVersion where
   fromCBOR = do

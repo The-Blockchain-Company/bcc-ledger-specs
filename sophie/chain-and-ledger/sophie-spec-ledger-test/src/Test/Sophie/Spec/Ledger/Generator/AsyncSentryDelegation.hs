@@ -13,7 +13,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-redundant-constraints #-}
 
-module Test.Sophie.Spec.Ledger.Generator.VestedSealDelegation (
+module Test.Sophie.Spec.Ledger.Generator.VestedSentryDelegation (
 genDCert, 
 CertCred,
 mkOCert,

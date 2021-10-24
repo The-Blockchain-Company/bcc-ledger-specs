@@ -167,7 +167,7 @@ newtype UpId = UpId Int
 -- | Protocol version
 data ProtVer = ProtVer
   { _pvMaj :: Natural,
-    _pvSeal :: Natural
+    _pvSentry :: Natural
   }
   deriving (Eq, Generic, Ord, Show, Hashable, Data, Typeable, NoThunks)
 
@@ -1100,20 +1100,20 @@ instance HasTrace UPIREG where
         nextAltVersion
           <$> Gen.element
             [ (_pvMaj pv + 1, 0),
-              (_pvMaj pv, _pvSeal pv + 1)
+              (_pvMaj pv, _pvSentry pv + 1)
             ]
         where
           nextAltVersion :: (Natural, Natural) -> ProtVer
           nextAltVersion (maj, mn) =
             dom (range rpus)
               & Set.filter protocolVersionEqualsMajMin
-              & Set.map _pvSeal
+              & Set.map _pvSentry
               & Set.toDescList
               & nextVersion
             where 
               protocolVersionEqualsMajMin :: ProtVer -> Bool
               protocolVersionEqualsMajMin pv' =
-                _pvMaj pv' == maj && _pvSeal pv' == mn
+                _pvMaj pv' == maj && _pvSentry pv' == mn
           
               nextVersion :: [Natural] -> ProtVer
               nextVersion [] = ProtVer maj mn

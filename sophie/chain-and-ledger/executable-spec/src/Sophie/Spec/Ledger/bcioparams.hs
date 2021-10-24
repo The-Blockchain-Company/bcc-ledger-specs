@@ -13,9 +13,9 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Sophie.Spec.Ledger.VestedSeal
-  ( VestedSealEnv (..),
-    sealFactor
+module Sophie.Spec.Ledger.VestedSentry
+  ( VestedSentryEnv (..),
+    sentryFactor
   )
 where
 
@@ -118,7 +118,7 @@ import Bcc.Ledger.Keys
   )
 import Bcc.Ledger.Sophie.Constraints
 import Bcc.Ledger.Slot (EpochNo, EpochSize (..), SlotNo)
-import Bcc.Ledger.Seal (SealNo, sealEpochInfoFirst, sealSlotInfoEpoch)
+import Bcc.Ledger.Sentry (SentryNo, sentryEpochInfoFirst, sentrySlotInfoEpoch)
 import Bcc.Prelude (Coercible, asks)
 import Bcc.Protocol.TOptimum.BHeader (BHBody (..), bhbody)
 import Bcc.Protocol.TOptimum.OCert (KESPeriod (..))
@@ -154,15 +154,15 @@ import Sophie.Spec.Ledger.BlockChain (Block, TxSeq, bheader)
 import Sophie.Spec.Ledger.PParams (PParamsUpdate)
 import Sophie.Spec.Ledger.Tx (Tx, TxOut, WitnessSet)
 
--- | Vested Seal Configuration.
+-- | Vested Sentry Configuration.
 --
--- This allows us to configure the initial SealConstruct 
+-- This allows us to configure the initial SentryConstruct 
 -- in order to test Optimum in a static configuration, without requiring on-chain
 -- registration and delegation.
 --
 -- For simplicity, pools defined in the genesis staking do not pay deposits for
 -- their registration.
-data VestedSealEnv crypto = VestedSealEnv
+data VestedSentryEnv crypto = VestedSentryEnv
   {
     txCounts :: !(Map (KeyHash 'StakePool crypto) (PoolParams crypto)),
     -- | Stake-holding key hash credentials and the pools to delegate that stake
@@ -187,11 +187,11 @@ instance CC.Crypto crypto => FromCBOR (SophieGenesisStaking crypto) where
       stake <- mapFromCBOR
       pure $ SophieGenesisStaking pools stake
 
-sealFactor :: Float
-sealFactor = 2.0
+sentryFactor :: Float
+sentryFactor = 2.0
 
 
-data sealConstruct crypto = sealConstruct
+data sentryConstruct crypto = sentryConstruct
   
   
   { numTx :: Map (TxIn crypto)
@@ -199,12 +199,12 @@ data sealConstruct crypto = sealConstruct
   }
 
 
-vestedSealKeyGen ::
+vestedSentryKeyGen ::
   (Era era) =>
   Ledger.TxId (Crypto era) ->
   [Core.TxOut era] ->
   UTxO era
-vestedSealKeyGen vestedTxId outs =
+vestedSentryKeyGen vestedTxId outs =
   UTxO $
     Map.fromList [(TxIn vestedTxId idx, out) | (idx, out) <- zip [0 ..] outs]
 

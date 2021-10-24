@@ -1184,7 +1184,7 @@ instance Crypto c => PrettyA (CompactAddr c) where
 -- Sophie.Spec.Ledger.PParams
 
 ppProtVer :: ProtVer -> PDoc
-ppProtVer (ProtVer maj se) = ppRecord "Version" [("major", ppNatural maj), ("seal", ppNatural se)]
+ppProtVer (ProtVer maj se) = ppRecord "Version" [("major", ppNatural maj), ("sentry", ppNatural se)]
 
 ppPParams :: PParams' Identity era -> PDoc
 ppPParams (PParams feeA feeB mbb mtx mbh kd pd em no a0 rho tau d ex pv mutxo mpool) =
@@ -1495,7 +1495,7 @@ ppGlobals
       stab
       ran
       sec
-      seal
+      sentry
       maxkes
       quor
       maxmaj
@@ -1511,7 +1511,7 @@ ppGlobals
         ("stabilityWindow", pretty stab),
         ("randomnessStabilisationWindow", pretty ran),
         ("securityParameter", pretty sec),
-        ("vestMultiple", pretty seal),
+        ("vestMultiple", pretty sentry),
         ("maxKESEvo", pretty maxkes),
         ("quorum", pretty quor),
         ("maxMajorPV", pretty maxmaj),

@@ -20,7 +20,7 @@
 -- Module      : LedgerState
 -- Description : Operational Rules
 --
--- This module implements the operation rules for treating UTxO transactions ('Tx') #TODO move seal operations here
+-- This module implements the operation rules for treating UTxO transactions ('Tx') #TODO move sentry operations here
 -- as state transformations on a ledger state ('LedgerState'),
 -- as specified in /A Simplified Formal Specification of a UTxO Ledger/.
 module Sophie.Spec.Ledger.LedgerState

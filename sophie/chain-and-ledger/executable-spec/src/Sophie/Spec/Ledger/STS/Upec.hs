@@ -57,7 +57,7 @@ import Sophie.Spec.Ledger.LedgerState
 import Sophie.Spec.Ledger.PParams (ProposedPPUpdates (..), ProtVer)
 import Sophie.Spec.Ledger.STS.Newpp (NEWPP, NewppEnv (..), NewppState (..))
 
--- | Update epoch change #TODO sealValidate
+-- | Update epoch change #TODO sentryValidate
 data UPEC era
 
 newtype UpecPredicateFailure era

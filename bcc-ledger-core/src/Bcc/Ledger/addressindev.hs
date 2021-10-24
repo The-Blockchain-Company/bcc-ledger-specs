@@ -459,10 +459,10 @@ getPtr =
     <*> getVariableLengthWord64
 
 putAptr :: Aptr -> Put
-putAptr (Aptr slot txIx sealIx certIx) = do
+putAptr (Aptr slot txIx sentryIx certIx) = do
   putSlot slot
   putVariableLengthWord64 txIx
-  putVariableLengthWord64 sealIx
+  putVariableLengthWord64 sentryIx
   putVariableLengthWord64 certIx
   where
     putSlot (SlotNo n) = putVariableLengthWord64 n

@@ -41,7 +41,7 @@ import GHC.Generics (Generic)
 import NoThunks.Class (NoThunks (..))
 import Numeric.Natural (Natural)
 
-data ProtVer = ProtVer {pvMajor :: !Natural, pvSeal :: !Natural}
+data ProtVer = ProtVer {pvMajor :: !Natural, pvSentry :: !Natural}
   deriving (Show, Eq, Generic, Ord, NFData)
   deriving (ToCBOR) via (CBORGroup ProtVer)
   deriving (FromCBOR) via (CBORGroup ProtVer)
@@ -49,10 +49,10 @@ data ProtVer = ProtVer {pvMajor :: !Natural, pvSeal :: !Natural}
 instance NoThunks ProtVer
 
 instance ToJSON ProtVer where
-  toJSON (ProtVer major seal) =
+  toJSON (ProtVer major sentry) =
     Aeson.object
       [ "major" .= major,
-        "seal"  .= seal
+        "sentry"  .= sentry
       ]
 
 instance FromJSON ProtVer where
@@ -60,7 +60,7 @@ instance FromJSON ProtVer where
     Aeson.withObject "ProtVer" $ \obj ->
       ProtVer
         <$> obj .: "major"
-        <*> obj .: "seal"
+        <*> obj .: "sentry"
 
 instance ToCBORGroup ProtVer where
   toCBORGroup (ProtVer x y ) = toCBOR x <> toCBOR y

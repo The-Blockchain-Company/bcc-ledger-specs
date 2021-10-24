@@ -50,7 +50,7 @@ import Bcc.Ledger.Keys as X
     hashKey,
     hashVerKeyVRF,
   )
-import Bcc.Protocol.TOptimum as X -- #TODO Sophie version depracated, pull in Seal Type from Cole
+import Bcc.Protocol.TOptimum as X -- #TODO Sophie version depracated, pull in Sentry Type from Cole
   ( PoolDistr (..),
     individualPoolStake,
   )

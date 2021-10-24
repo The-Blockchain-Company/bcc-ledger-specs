@@ -445,11 +445,11 @@ registerProtocolUpdate adoptedPV adoptedPP registeredPUPs proposal = do
 pvCanFollow :: ProtocolVersion -> ProtocolVersion -> Bool
 pvCanFollow newPV adoptedPV = adoptedPV < newPV && isNextVersion
   where
-    ProtocolVersion newMajor newSeal = newPV
-    ProtocolVersion adoptedMajor adoptedSeal = adoptedPV
+    ProtocolVersion newMajor newSentry = newPV
+    ProtocolVersion adoptedMajor adoptedSentry = adoptedPV
     isNextVersion = case newMajor - adoptedMajor of
-      0 -> newSeal == adoptedSeal + 1
-      1 -> newSeal == 0
+      0 -> newSentry == adoptedSentry + 1
+      1 -> newSentry == 0
       _ -> False
 
 -- | Check that the new 'ProtocolParameters' represent a valid update

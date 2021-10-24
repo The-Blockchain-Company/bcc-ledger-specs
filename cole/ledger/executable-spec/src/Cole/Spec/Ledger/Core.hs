@@ -178,7 +178,7 @@ verify :: Eq a => VKey -> a -> Sig a -> Bool
 verify (VKey vk) vd (Sig sd sk) = vk == sk && vd == sd
 
 ---------------------------------------------------------------------------------
--- Slots, Epochs, Seals
+-- Slots, Epochs, Sentrys
 ---------------------------------------------------------------------------------
 
 newtype Epoch = Epoch {unEpoch :: Word64}
@@ -191,7 +191,7 @@ newtype Slot = Slot {unSlot :: Word64}
   deriving newtype (Eq, Ord, Hashable, ToCBOR, NoThunks)
   deriving anyclass (HasTypeReps)
 
-newtype Seal = Seal {unSeal :: Word64}
+newtype Sentry = Sentry {unSentry :: Word64}
   deriving stock (Show, Generic, Data, Typeable)
   deriving newtype (Eq, Ord, Hashable, ToCBOR, NoThunks)
   deriving anyclass (HasTypeReps)
@@ -520,7 +520,7 @@ deriveShepard ''Owner
 deriveShepard ''Sig
 deriveShepard ''Slot
 deriveShepard ''SlotCount
-deriveShepard ''Seal
+deriveShepard ''Sentry
 deriveShepard ''VKey
 deriveShepard ''VKeyGenesis
 deriveShepard ''VKeyVested
@@ -559,7 +559,7 @@ deriveAddShrinks ''Hash
 deriveAddShrinks ''Entropic
 deriveAddShrinks ''Owner
 deriveAddShrinks ''Sig
-deriveAddShrinks ''Seal
+deriveAddShrinks ''Sentry
 deriveAddShrinks ''Slot
 deriveAddShrinks ''SlotCount
 deriveAddShrinks ''VKey
@@ -576,7 +576,7 @@ deriveSeedShepard ''Epoch
 deriveSeedShepard ''Hash
 deriveSeedShepard ''Entropic
 deriveSeedShepard ''Owner
-deriveSeedShepard ''Seal
+deriveSeedShepard ''Sentry
 deriveSeedShepard ''Slot
 deriveSeedShepard ''SlotCount
 deriveSeedShepard ''VKey

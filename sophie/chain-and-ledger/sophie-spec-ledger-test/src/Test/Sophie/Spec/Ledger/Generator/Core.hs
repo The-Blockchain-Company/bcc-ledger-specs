@@ -301,7 +301,7 @@ data KeySpace era = KeySpace_
   { ksCoreNodes :: [(GenesisKeyPair (Crypto era), AllIssuerKeys (Crypto era) 'GenesisDelegate)],
     -- | Bag of keys to be used for future genesis delegates
     ksGenesisDelegates :: [AllIssuerKeys (Crypto era) 'GenesisDelegate],
-    -- | The first Vested Seal delegates
+    -- | The first Vested Sentry delegates
     ksCoreVested :: [(VestedKeyPair (Crypto era), AllIssuerKeys (Crypto era) 'VestedDelegate)],
     -- | Bag of keys to be used for future vested delegates 
     ksVestedDelegates :: [AllIssuerKeys (Crypto era) 'VestedDelegate],

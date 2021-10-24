@@ -522,7 +522,7 @@ activeSlotLog f = fromIntegral (unActiveSlotLog f) / fpPrecision
 
 data Globals = Globals
   { epochInfoWithErr :: !(EpochInfo (Either Text)),
-    -- | the current open seal period 
+    -- | the current open sentry period 
     vestMultiple :: !Word64,
     slotsPerKESPeriod :: !Word64,
     -- | The window size in which our chosen chain growth property

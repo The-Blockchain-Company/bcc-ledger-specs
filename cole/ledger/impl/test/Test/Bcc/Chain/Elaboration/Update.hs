@@ -82,12 +82,12 @@ elaborateFeePolicy (Abstract.FactorA a) (Abstract.FactorB b) =
 elaborateProtocolVersion ::
   Abstract.ProtVer ->
   Concrete.ProtocolVersion
-elaborateProtocolVersion (Abstract.ProtVer major seal) =
+elaborateProtocolVersion (Abstract.ProtVer major sentry) =
   -- TODO: the abstract version numbers should have the same type as the
   -- concrete ones!
   Concrete.ProtocolVersion
     (fromIntegral major)
-    (fromIntegral seal)
+    (fromIntegral sentry)
     
 
 elaborateSoftwareVersion ::

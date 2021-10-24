@@ -137,7 +137,7 @@ data RewardProvenance crypto = RewardProvenance
     blocksCount :: !Integer,
     -- | The decentralization parameter.
     d :: !Rational,
-    -- | The Vested Seal dist parameter.
+    -- | The Vested Sentry dist parameter.
     sd :: !Rational,
     -- | The number of blocks expected to be produced during the given epoch.
     expBlocks :: !Integer,

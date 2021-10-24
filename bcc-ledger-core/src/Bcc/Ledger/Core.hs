@@ -62,8 +62,8 @@ type family Script era :: Type
 -- | AuxiliaryData which may be attached to a transaction
 type family AuxiliaryData era = (r :: Type) | r -> era
 
--- | VestedSealData which is utilized for vested calculations
-type family VestedSeal era = ( r :: Type ) | r -> era
+-- | VestedSentryData which is utilized for vested calculations
+type family VestedSentry era = ( r :: Type ) | r -> era
 
 -- | Protocol parameters
 type family PParams era = (r :: Type) | r -> era

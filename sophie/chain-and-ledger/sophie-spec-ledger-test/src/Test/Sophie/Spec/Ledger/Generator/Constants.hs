@@ -90,10 +90,10 @@ data Constants = Constants
     minSlotTrace :: Int,
     -- | Maximal slot for CHAIN trace generation.
     maxSlotTrace :: Int,
-    -- | Minimal seal for CHAIN trace generation.
-    minSealTrace :: Int,
-    -- | Maximal seal for CHAIN trace generation.
-    maxSealTrace :: Int,
+    -- | Minimal sentry for CHAIN trace generation.
+    minSentryTrace :: Int,
+    -- | Maximal sentry for CHAIN trace generation.
+    maxSentryTrace :: Int,
     -- | Lower bound of the MaxEpoch protocol parameter
     frequencyLowMaxEpoch :: Word64,
     maxMinFeeA :: Natural,
@@ -152,8 +152,8 @@ defaultConstants =
       frequencyPotentiallyManyWithdrawals = 5,
       minSlotTrace = 1000,
       maxSlotTrace = 5000,
-      minSealTrace = 1,
-      maxSealTrace = 7,
+      minSentryTrace = 1,
+      maxSentryTrace = 7,
       frequencyLowMaxEpoch = 200,
       maxMinFeeA = 1000,
       maxMinFeeB = 3,

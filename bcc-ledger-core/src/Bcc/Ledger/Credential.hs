@@ -156,10 +156,10 @@ instance FromCBORGroup Ptr where
   fromCBORGroup = Ptr <$> fromCBOR <*> fromCBOR <*> fromCBOR 
 -- | instance for Aptr - the vested specific credential pointer 
 instance ToCBORGroup Aptr where
-  toCBORGroup (Aptr sl txIx sealIx certIx) =
+  toCBORGroup (Aptr sl txIx sentryIx certIx) =
     toCBOR sl
       <> toCBOR txIx
-      <> toCBOR sealIx
+      <> toCBOR sentryIx
       <> toCBOR certIx    
   encodedGroupSizeExpr size_ proxy =
     encodedSizeExpr size_ (getSlotNo <$> proxy)
