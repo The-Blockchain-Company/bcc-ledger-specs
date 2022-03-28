@@ -9,7 +9,7 @@ description:
 bug-reports:         https://github.com/The-Blockchain-Company/bcc-ledger-specs/issues
 license:             Apache-2.0
 author:              TBCO Formal Methods Team
-maintainer:          formal.methods@tbco.io
+maintainer:          dev@blockchain-company.io
 copyright:           2021 The-Blockchain-Company
 category:            Network
 build-type:          Simple

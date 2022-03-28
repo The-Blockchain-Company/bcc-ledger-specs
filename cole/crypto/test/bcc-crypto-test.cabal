@@ -6,8 +6,8 @@ synopsis:            Test helpers from bcc-crypto exposed to other packages
 description:         Test helpers from bcc-crypto exposed to other packages
 license:             Apache-2.0
 author:              TBCO
-maintainer:          operations@tbco.io
-copyright:           2018 TBCO
+maintainer:          operations@blockchain-company.io
+copyright:           2022 TBCO
 category:            Currency
 build-type:          Simple
 

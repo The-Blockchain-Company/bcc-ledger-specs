@@ -5,7 +5,7 @@ version:             0.1.0.0
 description:         Test helpers from sophie-spec-ledger exposed to other packages
 license:             Apache-2.0
 author:              TBCO 
-maintainer:          Bcc-Coin@tbco.io
+maintainer:          Bcc-Coin@blockchain-company.io
 build-type:          Simple
 
 extra-source-files:

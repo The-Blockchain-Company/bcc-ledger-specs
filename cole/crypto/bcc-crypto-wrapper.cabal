@@ -6,8 +6,8 @@ synopsis:            Cryptographic primitives used in the Bcc project
 description:         Cryptographic primitives used in the Bcc project
 license:             Apache-2.0
 author:              TBCO
-maintainer:          operations@tbco.io
-copyright:           2019 TBCO
+maintainer:          operations@blockchain-company.io
+copyright:           2022 TBCO
 category:            Currency
 build-type:          Simple
 extra-source-files:  README.md

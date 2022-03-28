@@ -7,7 +7,7 @@ synopsis:            Small step semantics testing library
 homepage:            https://github.com/The-Blockchain-Company/bcc-legder-specs
 license:             Apache-2.0
 author:              TBCO Formal Methods Team
-maintainer:          formal.methods@tbco.io
+maintainer:          dev@blockchain-company.io
 -- copyright:
 category:            Control
 build-type:          Simple

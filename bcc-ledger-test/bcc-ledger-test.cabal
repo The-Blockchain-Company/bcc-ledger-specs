@@ -8,7 +8,7 @@ synopsis:
 -- bug-reports:
 license:             Apache-2.0
 author:              TBCO Formal Methods Team
-maintainer:          nicholas.clarke@tbco.io
+maintainer:          rmourey_jr@@blockchain-company.io
 copyright:           2021 The-Blockchain-Company
 -- category:
 build-type:          Simple

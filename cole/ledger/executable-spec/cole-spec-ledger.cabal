@@ -7,7 +7,7 @@ synopsis:            Executable specification of Bcc ledger
 homepage:            https://github.com/The-Blockchain-Company/bcc-legder-specs
 license:             Apache-2.0
 author:              TBCO Formal Methods Team
-maintainer:          formal.methods@tbco.io
+maintainer:          dev@blockchain-company.io
 -- copyright:
 category:            Testing
 build-type:          Simple

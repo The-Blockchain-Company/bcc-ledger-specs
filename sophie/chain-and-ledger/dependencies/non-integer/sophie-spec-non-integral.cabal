@@ -4,7 +4,7 @@ name:                sophie-spec-non-integral
 version:             0.1.0.0
 license:             Apache-2.0
 author:              TBCO Formal Methods Team
-maintainer:          formal.methods@tbco.io
+maintainer:          dev@blockchain-company.io
 description:         Implementation decision for non-integer calculations
 build-type:          Simple
 

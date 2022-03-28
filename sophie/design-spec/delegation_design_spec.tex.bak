@@ -6,11 +6,11 @@
 \DeliverableTitle{Design Specification for Delegation and Incentives in Bcc}{Delegation/Incentives Design Spec.}
 \DeliverableResponsible{Formal Methods Team}
 \EditorName{Philipp Kant, \TBCO}
-\Authors{Philipp Kant   \quad \texttt{<philipp.kant@tbco.io>}
+\Authors{Philipp Kant   \quad \texttt{<philipp.kant@blockchain-company.io>}
    \\[1em]
-   Lars Br\"unjes \quad \texttt{<lars.bruenjes@tbco.io>}
+   Lars Br\"unjes \quad \texttt{<lars.bruenjes@blockchain-company.io>}
    \\[1em]
-   Duncan Coutts  \quad \texttt{<duncan.coutts@tbco.io>}
+   Duncan Coutts  \quad \texttt{<duncan.coutts@blockchain-company.io>}
 }
 \DueDate{1$^{\textrm{st}}$ November 2019}
 \SubmissionDate{28$^{\textrm{th}}$ October 2019}{2019/10/28}
@@ -198,10 +198,10 @@ First version officially published on the TBCO blog.}
   in Bcc--Sophie \\
   {\large \sc An TBCO technical report}}
 
-\author{Philipp Kant   \\ {\small \texttt{philipp.kant@tbco.io}} \\
-   \and Lars Br\"unjes \\ {\small \texttt{lars.bruenjes@tbco.io}} \\
+\author{Philipp Kant   \\ {\small \texttt{philipp.kant@blockchain-company.io}} \\
+   \and Lars Br\"unjes \\ {\small \texttt{lars.bruenjes@blockchain-company.io}} \\
    \and Duncan Coutts  \\ {\small \texttt{duncan@well-typed.com}} \\
-                          {\small \texttt{duncan.coutts@tbco.io}}}
+                          {\small \texttt{duncan.coutts@blockchain-company.io}}}
 \maketitle
 
 \begin{abstract}

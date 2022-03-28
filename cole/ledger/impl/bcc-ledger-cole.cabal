@@ -6,8 +6,8 @@ synopsis:            The blockchain layer of Bcc during the Cole era
 description:         The blockchain layer of Bcc during the Cole era
 license:             Apache-2.0
 author:              TBCO
-maintainer:          operations@tbco.io
-copyright:           2018 TBCO
+maintainer:          operations@blockchain-company.io
+copyright:           2022 TBCO
 category:            Currency
 build-type:          Simple
 extra-source-files:  README.md
