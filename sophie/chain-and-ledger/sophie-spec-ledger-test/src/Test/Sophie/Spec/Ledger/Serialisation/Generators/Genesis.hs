@@ -5,7 +5,7 @@
 {-# LANGUAGE TypeApplications #-}
 {-# OPTIONS_GHC -Wno-unused-binds #-}
 
-module Test.Sophie.Spec.Ledger.Serialisation.Generators.Genesis (genAddress) where
+module Test.Sophie.Spec.Ledger.Serialisation.Generators.Genesis (genAddress, genRewardAcnt) where
 
 import Bcc.Crypto.DSIGN.Class
 import qualified Bcc.Crypto.Hash as Hash
