@@ -60,7 +60,7 @@ library
                      , containers
                      , filepath
                      , shepards
-                     , hashable
+                     , hashable >= 1.3.3 && <= 1.3.4
                      , hedgehog >= 1.0.4
                      , microlens
                      , microlens-th

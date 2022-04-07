@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
@@ -150,6 +151,7 @@ data PParams = PParams -- TODO: this should be a module of @cole-spec-ledger@.
     _upAdptThd :: !UpAdptThd,
     -- | Minimum fees per transaction
     _factorA :: !FactorA, -- TODO: these should have type 'Word64', like in `bcc-ledger`.
+
     -- | Additional fees per transaction size
     _factorB :: !FactorB
   }
@@ -230,9 +232,13 @@ data UProp = UProp
   }
   deriving (Eq, Generic, Show, Hashable, Data, Typeable, NoThunks)
 
+#if MIN_VERSION_hashable(1,3,4)
+-- Instance Hashable (Set a) is provided by the hashable package
+#else
 -- We need the Hashable instance before making lenses.
 instance Hashable a => Hashable (Set a) where
   hashWithSalt = H.hashUsing Set.toList
+#endif
 
 makeLenses ''UProp
 
