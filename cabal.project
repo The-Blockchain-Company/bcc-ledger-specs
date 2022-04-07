@@ -63,7 +63,7 @@ source-repository-package
 source-repository-package
   type: git
   location: https://github.com/The-Blockchain-Company/zerepoch
-  tag: d3efc65d4a2065f988373a4f4ef81a8bcabf5786
+  tag: 2cb0e482f6b0be2d3e64ca688c8f55c9f39c254b
   
   subdir:
     zerepoch-ledger-api
