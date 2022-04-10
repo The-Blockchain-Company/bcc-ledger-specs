@@ -28,7 +28,7 @@ write-ghc-environment-files: always
 source-repository-package
   type: git
   location: https://github.com/The-Blockchain-Company/bcc-base
-  tag: e38cc681d720a4c3a595a41e7439356066420939
+  tag: f6b3923ac0fb162098050f67dcbc31f6d721b22d
 
   subdir:
     base-deriving-via
@@ -63,7 +63,7 @@ source-repository-package
 source-repository-package
   type: git
   location: https://github.com/The-Blockchain-Company/zerepoch
-  tag: 25cbd932378f12fb48ec6613179385377fa356ec
+  tag: 057de48b3dd5502f22bfb16be47df32e94af9dd8
   
   subdir:
     zerepoch-ledger-api
