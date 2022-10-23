@@ -83,7 +83,7 @@ html_logo = "bcc-logo.png"
 html_context = {
   "display_github": True, # Add 'Edit on Github' link instead of 'View page source'
   "github_user": "The-Blockchain-Company",
-  "github_repo": "bcc-ledger",
+  "github_repo": "bcc-ledger-specs",
   "github_version": "master",
   "conf_py_path": "/doc",
   "source_suffix": source_suffix,
