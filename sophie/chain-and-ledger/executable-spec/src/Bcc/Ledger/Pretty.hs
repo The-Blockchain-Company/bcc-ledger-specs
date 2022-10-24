@@ -1511,7 +1511,7 @@ ppGlobals
         ("stabilityWindow", pretty stab),
         ("randomnessStabilisationWindow", pretty ran),
         ("securityParameter", pretty sec),
-        ("vestMultiple", pretty sentry),
+        ("vestMultiple", pretty vestmult),
         ("maxKESEvo", pretty maxkes),
         ("quorum", pretty quor),
         ("maxMajorPV", pretty maxmaj),

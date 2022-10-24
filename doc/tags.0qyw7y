@@ -1,0 +1,26 @@
+sys	conf.py	/^import sys$/;"	i
+os	conf.py	/^import os$/;"	i
+sphinx_rtd_theme	conf.py	/^import sphinx_rtd_theme$/;"	i
+recommonmark	conf.py	/^import recommonmark$/;"	i
+AutoStructify	conf.py	/^from recommonmark.transform import AutoStructify$/;"	i
+abspath	conf.py	/^from os.path import abspath, join, dirname$/;"	i
+join	conf.py	/^from os.path import abspath, join, dirname$/;"	i
+dirname	conf.py	/^from os.path import abspath, join, dirname$/;"	i
+on_rtd	conf.py	/^on_rtd = os.environ.get("READTHEDOCS", None) == "True"$/;"	v
+rtd_version	conf.py	/^rtd_version = os.environ.get("READTHEDOCS_VERSION", "latest")$/;"	v
+rtd_version	conf.py	/^    rtd_version = "stable"$/;"	v
+project	conf.py	/^project = 'Bcc Ledger'$/;"	v
+copyright	conf.py	/^copyright = '2020, TBCO'$/;"	v
+author	conf.py	/^author = 'TBCO'$/;"	v
+release	conf.py	/^release = '1.0.0'$/;"	v
+master_doc	conf.py	/^master_doc = 'index'$/;"	v
+extensions	conf.py	/^extensions = [$/;"	v
+templates_path	conf.py	/^templates_path = ['_templates']$/;"	v
+html_static_path	conf.py	/^html_static_path = ['_static']$/;"	v
+source_suffix	conf.py	/^source_suffix = {$/;"	v
+exclude_patterns	conf.py	/^exclude_patterns = [] $/;"	v
+html_theme	conf.py	/^html_theme = "sphinx_rtd_theme"$/;"	v
+html_theme_options	conf.py	/^html_theme_options = {$/;"	v
+html_logo	conf.py	/^html_logo = "bcc-logo.png"$/;"	v
+html_context	conf.py	/^html_context = {$/;"	v
+setup	conf.py	/^def setup(app):$/;"	f
