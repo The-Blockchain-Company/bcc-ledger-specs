@@ -1495,7 +1495,6 @@ ppGlobals
       stab
       ran
       sec
-      sentry
       maxkes
       quor
       maxmaj
