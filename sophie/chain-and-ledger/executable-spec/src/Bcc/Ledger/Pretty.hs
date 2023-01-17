@@ -1500,6 +1500,7 @@ ppGlobals
       quor
       maxmaj
       maxentropic
+      vestmult
       active
       net
       start
